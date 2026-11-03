@@ -1,0 +1,12 @@
+﻿path,purpose,write_state,existed_before_run,overwrote_user_file,size_bytes_now,sha256_prefix16,recorded_at_utc
+__ACADEMIC_REFERENCE_OUTPUT__/index.html,المرجع الأكاديمي الموحد النهائي (المُخرَج الرئيسي),CREATED_THEN_PATCHED_x3,no,no,177303,bbe3a1c96b1b09d7,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/PROJECT_MAP.md,خريطة المشروع وقواعد قفل النطاق واللقطات الأولية,CREATED,no,no,4576,a5a3a4ad2434f2db,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/FILE_MANIFEST.csv,جرد كل الملفات الموجودة قبل البدء,CREATED,no,no,164,a7cc167b315125dd,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/SOURCE_REGISTER.csv,سجل المصادر S1..S4 وحالة المعالجة,CREATED,no,no,2637,1ae16df1d328cc62,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/CONCEPT_LEDGER.csv,سجل الوحدات المعرفية الفريدة ومصيرها,CREATED_REGENERATED_AFTER_ADDITIONS,no,no,30578,ad22f06b760588ba,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/COVERAGE_MATRIX.csv,مصفوفة التغطية المصدر↔المخرج,CREATED_REGENERATED_AFTER_ADDITIONS,no,no,45706,a420c37db2bc6c06,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/OWNED_OUTPUTS_MANIFEST.csv,هذا السجل,CREATED,no,no,0,e3b0c44298fc1c14,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/OWNED_OUTPUTS_MANIFEST.md,نسخة سردية من سجل الملكية وسجل التعديلات,CREATED,no,no,3496,900f1396dd32fe53,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/CONFLICTS_AND_GAPS.md,التعارضات والفجوات والإصلاحات,PLANNED,no,no,0,-,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/QA_REPORT.md,تقرير ضمان الجودة,PLANNED,no,no,0,-,2026-11-03T21:09:49Z
+__ACADEMIC_REFERENCE_WORK__/patch_output.py,سكربت الحقن القابل للتكرار,CREATED,no,no,10738,cab43da7e1e95da4,2026-11-03T21:09:49Z
