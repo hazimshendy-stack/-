@@ -422,6 +422,13 @@
     .formula > mjx-container { margin: 0 !important; }
     div.formula > mjx-container { display: block; text-align: center; margin: 4px auto !important; }
     pre code.formula mjx-container { display: block; text-align: center; color: inherit; }
+    pre code.formula {
+      font: 400 17px/2.15 var(--latin);
+      background: transparent; border: none; padding: 0; display: block;
+      white-space: pre-wrap; direction: ltr; text-align: left;
+    }
+    pre:has(code.formula) { padding: 14px 19px 16px; }
+    mjx-container { font-size: 1.06em !important; }
     mjx-container ::selection { background: #d7e6ff; }
     </style>
 </head>
@@ -565,13 +572,13 @@
             <td>نصف قطر الكرة <span class="formula">\(a\)</span> في معادلة السطح <span class="formula">\(x^2+y^2+z^2=a^2\)</span>.</td>
           </tr>
           <tr>
-            <td><code>∈ , ∉</code></td>
+            <td><span class="formula">\(\in , \notin\)</span></td>
             <td><span class="english">Element of</span></td>
             <td>الانتماء لمجموعة: الرمز <span class="formula">\(x \\in D\)</span> يعني أن النقطة تقع داخل المجال <span class="formula">\(D\)</span>.</td>
             <td><span class="formula">\((1, 2) \\in \mathbb{R}^2\)</span>.</td>
           </tr>
           <tr>
-            <td><code>\mathbb{R}, \mathbb{R}^2, \mathbb{R}^3</code></td>
+            <td><span class="formula">\(\mathbb{R}, \mathbb{R}^2, \mathbb{R}^3\)</span></td>
             <td><span class="english">Real Euclidean Spaces</span></td>
             <td>مجموعات الأعداد الحقيقية: خط الأعداد (<span class="formula">\(\mathbb{R}\)</span>)، المستوى الإحداثي (<span class="formula">\(\mathbb{R}^2\)</span>)، الفضاء ثلاثي الأبعاد (<span class="formula">\(\mathbb{R}^3\)</span>).</td>
             <td>مجال دالة المتغيرين هو مجموعة جزئية من <span class="formula">\(\mathbb{R}^2\)</span>.</td>
@@ -583,7 +590,7 @@
             <td><span class="formula">\(|-5| = 5, |3| = 3\)</span>.</td>
           </tr>
           <tr>
-            <td><code>\Rightarrow , \Leftrightarrow</code></td>
+            <td><span class="formula">\(\Rightarrow , \Leftrightarrow\)</span></td>
             <td><span class="english">Implication / Equivalence</span></td>
             <td>الاستلزام المنطقي: <span class="formula">\(A \Rightarrow B\)</span> (إذا تحقق A فإن B يتحقق حتماً). <span class="formula">\(\Leftrightarrow\)</span> تكافؤ شرطي ثنائي.</td>
             <td><span class="formula">\(x = 2 \Rightarrow x^2 = 4\)</span>.</td>
@@ -592,7 +599,7 @@
       </table>
     </div>
 
-    <h3>١.٢ المتجهات في الفضاء ثلاثي الأبعاد (<span class="english">Vectors in \mathbb{R}^3</span>)</h3>
+    <h3>١.٢ المتجهات في الفضاء ثلاثي الأبعاد (<span class="formula">\(Vectors in \mathbb{R}^3\)</span>)</h3>
     <p>
       الفصل الثالث من المصدر يعتمد بصورة كاملة على المتجهات وحساب الحقول الشعاعية. المتجه هو كمية فيزيائية ورياضية تتميز بـ <strong>مقدار</strong> و <strong>اتجاه</strong>.
     </p>
@@ -1600,7 +1607,7 @@ e 0\)</span>)</td>
     </p>
 
     <div class="result">
-      <span class="box-title">مبرهنة فوبيني على المستطيل R = [a, b] × [c, d] (ص 81)</span>
+      <span class="box-title">مبرهنة فوبيني على المستطيل <span class="formula">\(R = [a, b] \times [c, d]\)</span> (ص 81)</span>
       <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
  $$\iint_R f(x, y)\,dA = \int_a^b \left[ \int_c^d f(x, y)\,dy \right] dx = \int_c^d \left[ \int_a^b f(x, y)\,dx \right] dy$$ 
 </div>
@@ -1991,7 +1998,7 @@ e 0\)</span>)</td>
     <div class="definition">
       <span class="box-title">نص مبرهنة ستوكس (Equation 16, p. 148)</span>
       <p>
-        تربط مبرهنة ستوكس بين <strong>دوران الحقل المتجهي (<span class="english">\nabla \times \mathbf{a}</span>) عبر سطح مفتوح <span class="formula">\(S\)</span></strong>، وبين <strong>دوران الحقل على طول منحنى الحدود المغلق <span class="formula">\(C\)</span> المحيط بالسطح</strong> باتباع قاعدة اليد اليمنى:
+        تربط مبرهنة ستوكس بين <strong>دوران الحقل المتجهي (<span class="formula">\(\nabla \times \mathbf{a}\)</span>) عبر سطح مفتوح <span class="formula">\(S\)</span></strong>، وبين <strong>دوران الحقل على طول منحنى الحدود المغلق <span class="formula">\(C\)</span> المحيط بالسطح</strong> باتباع قاعدة اليد اليمنى:
       </p>
       <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
  $$\int_S (\nabla \times \mathbf{a}) \cdot d\mathbf{S} = \oint_C \mathbf{a} \cdot d\mathbf{r}$$ 
@@ -2049,7 +2056,7 @@ e 0\)</span>)</td>
 
     <h3>١٧.٤ برهان مبرهنة التكامل الشعاعي المقترنة (ص 150–151)</h3>
     <div class="example">
-      <span class="box-title">[S] برهان المصدر للعلاقة: \int_S d\mathbf{S} \times \nabla\phi = \oint_C \phi\,d\mathbf{r}</span>
+      <span class="box-title">[S] برهان المصدر للعلاقة: \(\int_S d\mathbf{S} \times \nabla\phi = \oint_C \phi\,d\mathbf{r}\)</span>
       <p><strong>البرهان كما ساقه المصدر ص 150:</strong></p>
       <ol>
         <li>نطبق مبرهنة ستوكس الأساسية: <span class="formula">\(\int_S [\nabla \times \mathbf{a}] \cdot d\mathbf{S} = \oint_C \mathbf{a} \cdot d\mathbf{r}\)</span>.</li>
@@ -2082,7 +2089,7 @@ e 0\)</span>)</td>
     </div>
     <h3>١٧.٥ صندوق مقارنة استراتيجي بين المبرهنات التكاملية الثلاث (<span class="english">[E] Comparison</span>)</h3>
     <div class="comparison">
-      <span class="box-title">[E] مقارنة: غرين ↔ ستوكس ↔ غاوس — أيّها أستخدم؟ (تنظيم استنتاجي للمادة، لا نص حرفي من المصدر)</span>
+      <span class="box-title">[E] مقارنة: غرين <span class="formula">\(\Leftrightarrow\)</span> ستوكس <span class="formula">\(\Leftrightarrow\)</span> غاوس — أيّها أستخدم؟ (تنظيم استنتاجي للمادة، لا نص حرفي من المصدر)</span>
       <div class="table-wrap">
         <table>
           <thead>
@@ -2563,7 +2570,7 @@ e 0\)</span>)</td>
         tags: 'none'
       },
       options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea'],
         enableMenu: false
       },
       chtml: { scale: 1.0, matchFontHeight: false, mtextInheritFont: true },
@@ -2594,10 +2601,17 @@ e 0\)</span>)</td>
           function walk(node) {
             if (node.nodeType === 3) {
               var t = node.nodeValue;
-              if (/\\\(|\$\$/.test(t)) node.nodeValue = sanitize(t);
+              var par = node.parentNode;
+              var pn = par ? par.nodeName.toLowerCase() : '';
+              if (pn === 'script' || pn === 'style' || pn === 'noscript') return;
+              var cls = par ? (par.getAttribute('class') || '') : '';
+              var hasBS = t.indexOf('\(') !== -1 || t.indexOf('$$') !== -1;
+              if (/formula/i.test(cls) || pn === 'code' || pn === 'pre' || hasBS) {
+                node.nodeValue = sanitize(t);
+              }
             } else if (node.nodeType === 1) {
               var tag = node.nodeName.toLowerCase();
-              if (['script','noscript','style','textarea','pre','code','svg'].indexOf(tag) !== -1) return;
+              if (tag === 'script' || tag === 'noscript' || tag === 'style' || tag === 'textarea' || tag === 'svg') return;
               for (var c = node.firstChild; c; c = c.nextSibling) walk(c);
             }
           }
