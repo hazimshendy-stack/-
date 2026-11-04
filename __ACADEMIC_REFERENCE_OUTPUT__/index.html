@@ -1,0 +1,2612 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="المرجع الجامعي التأسيسي الشامل في التفاضل العالي والتحليل الرياضي (Math 216 - Calculus 2) من الصفر إلى الإتقان الأكاديمي.">
+  <title>التفاضل العالي والتحليل الرياضي — المرجع الجامعي الشامل (من الصفر)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #111111;
+      --ink: #202020;
+      --mid: #555555;
+      --muted: #777777;
+      --line: #bdbdbd;
+      --soft-line: #dedede;
+      --paper: #ffffff;
+      --wash: #f7f7f7;
+      --serif: "Tajawal", sans-serif;
+      --heading: "Tajawal", sans-serif;
+      --latin: "STIX Two Text", "Times New Roman", serif;
+      --mono: "JetBrains Mono", "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 30px 0 54px;
+      color: var(--ink);
+      background: #fff;
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 2.05;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      position: relative;
+      width: min(100% - 42px, 920px);
+      margin: 0 auto;
+      padding: 62px 82px 64px;
+      background: var(--paper);
+      border: 1px solid #e4e4e4;
+      box-shadow: 0 8px 34px rgba(0, 0, 0, .055);
+    }
+
+    .running-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--black);
+      color: var(--mid);
+      font: 500 10px/1.5 var(--latin);
+      letter-spacing: .12em;
+      direction: ltr;
+      text-transform: uppercase;
+    }
+    .running-head .brand { color: var(--black); font-weight: 700; }
+
+    .title-block {
+      position: relative;
+      padding: 58px 18px 43px;
+      text-align: center;
+      border-bottom: 1px solid var(--black);
+    }
+    .title-block::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: calc(50% - 23px);
+      width: 46px;
+      height: 3px;
+      background: var(--black);
+    }
+    .kicker {
+      margin: 0 0 16px;
+      color: var(--mid);
+      font: 600 11px/1.6 var(--latin);
+      letter-spacing: .17em;
+      direction: ltr;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      color: var(--black);
+      font: 700 clamp(37px, 5.2vw, 51px)/1.55 var(--heading);
+      letter-spacing: -.025em;
+    }
+    .english-title {
+      margin-top: 6px;
+      color: var(--mid);
+      font: 600 23px/1.55 var(--latin);
+      direction: ltr;
+      letter-spacing: .01em;
+    }
+    .metadata {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 22px;
+      margin-top: 25px;
+      color: var(--muted);
+      font: 400 13px/1.9 var(--serif);
+    }
+    .metadata span { white-space: nowrap; }
+    .metadata strong { color: var(--ink); font-weight: 700; }
+
+    .abstract {
+      max-width: 690px;
+      margin: 31px auto 0;
+      padding: 15px 20px 14px;
+      border: 1px solid var(--line);
+      border-right: 2px solid var(--black);
+      background: #fff;
+      text-align: right;
+      font-size: 16px;
+      line-height: 2;
+    }
+    .abstract strong { color: var(--black); font-family: var(--heading); font-size: 15px; }
+
+    section { margin-top: 45px; }
+    h2 {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 21px;
+      padding: 0 0 10px;
+      border-bottom: 1px solid var(--black);
+      color: var(--black);
+      font: 700 25px/1.75 var(--heading);
+      letter-spacing: -.015em;
+    }
+    h2 .number {
+      flex: 0 0 auto;
+      display: inline-block;
+      color: #929292;
+      font: 500 14px/1.2 "Tajawal", sans-serif;
+      direction: rtl;
+      letter-spacing: 0;
+      vertical-align: baseline;
+      transform: translateY(-1px);
+    }
+    h3 {
+      margin: 29px 0 9px;
+      color: var(--black);
+      font: 700 20px/1.8 var(--heading);
+      text-decoration: none;
+    }
+    h3::after {
+      content: "";
+      display: block;
+      width: 30px;
+      margin-top: 3px;
+      border-bottom: 1px solid var(--mid);
+    }
+    p { margin: 10px 0 16px; }
+    ul, ol { margin: 10px 0 19px; padding-right: 28px; }
+    li { margin: 5px 0; padding-right: 2px; }
+
+    .ltr, .term, .english, .formula { font-family: var(--latin); }
+    .term, .english {
+      display: inline-block;
+      direction: ltr;
+      unicode-bidi: isolate;
+      color: var(--black);
+      font-weight: 600;
+    }
+    code {
+      display: inline-block;
+      padding: 0 5px;
+      border: 1px solid #d5d5d5;
+      border-radius: 2px;
+      background: #f7f7f7;
+      color: var(--black);
+      direction: ltr;
+      unicode-bidi: isolate;
+      font: 500 .78em/1.6 var(--mono);
+      vertical-align: baseline;
+    }
+
+    .definition, .note, .warning, .example, .result, .principle {
+      position: relative;
+      margin: 21px 0 24px;
+      padding: 15px 20px 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      line-height: 2;
+    }
+    .definition { border-right: 2px solid var(--black); }
+    .note { border-right: 1px solid var(--mid); background: #fafafa; }
+    .warning { border-right: 2px solid var(--black); background: #f5f5f5; }
+    .comparison { border-right: 2px solid var(--black); background: #fff; }
+    .recall { border-right: 1px dashed var(--mid); background: #fafafa; }
+    .toc { position: relative; margin: 40px 0 8px; padding: 26px 28px 20px; border: 1px solid var(--line); background: #fff; }
+    .toc-title { margin: 0 0 6px; font-size: 21px; color: var(--black); letter-spacing: .01em; }
+    .toc-title .number { display: inline-block; min-width: 52px; color: var(--mid); font-weight: 700; }
+    .toc-note { margin: 0 0 16px; color: var(--mid); font-size: 16px; line-height: 1.9; }
+    .toc-list { margin: 0; padding: 0; list-style: none; counter-reset: none; columns: 2; column-gap: 34px; }
+    .toc-list li { margin: 0 0 7px; break-inside: avoid; font-size: 16.5px; line-height: 1.75; }
+    .toc-list a { color: var(--ink); border-bottom: 1px dotted var(--soft-line); }
+    .toc-list a:hover { color: #000; border-bottom-color: var(--black); }
+    .toc-num { display: inline-block; min-width: 30px; color: var(--muted); font-weight: 700; }
+    .recall { border-right: 1px dashed var(--mid); background: #fafafa; }
+    .example { border-right: 1px solid var(--mid); background: #fafafa; }
+    .result { border-right: 2px solid var(--black); background: #f6f6f6; }
+    .principle { border: 1px solid var(--mid); border-right: 2px solid var(--black); background: #fafafa; }
+    .box-title {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--black);
+      font: 700 16px/1.8 var(--heading);
+    }
+    .definition p, .note p, .warning p, .example p, .result p, .principle p { margin: 4px 0; }
+
+    .code-wrap {
+      margin: 16px 0 20px;
+      overflow: hidden;
+      border: 1px solid #bcbcbc;
+      background: #fff;
+      direction: ltr;
+      text-align: left;
+    }
+    .code-label {
+      padding: 6px 13px 5px;
+      border-bottom: 1px solid #c8c8c8;
+      background: #f3f3f3;
+      color: #444;
+      font: 600 10px/1.7 var(--latin);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    pre {
+      margin: 0;
+      padding: 16px 19px 18px;
+      overflow-x: auto;
+      color: #111;
+      font: 400 12px/1.95 var(--mono);
+      white-space: pre;
+      tab-size: 4;
+    }
+    .comment { color: #777; }
+    .keyword, .function { color: #111; font-weight: 700; }
+    .string { color: #333; }
+    .number-token { color: #555; font-weight: 600; }
+
+    .table-wrap { overflow-x: auto; margin: 18px 0 23px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+    th, td {
+      padding: 9px 11px;
+      border: 0;
+      border-bottom: 1px solid #d0d0d0;
+      text-align: right;
+      vertical-align: top;
+    }
+    thead th {
+      border-top: 1.5px solid var(--black);
+      border-bottom: 1px solid var(--black);
+      background: #f5f5f5;
+      color: var(--black);
+      font: 700 15px/1.8 var(--heading);
+    }
+    tbody tr:last-child td { border-bottom: 1.5px solid var(--black); }
+    td code { white-space: nowrap; }
+
+    .step-list { counter-reset: steps; list-style: none; padding: 0; }
+    .step-list li {
+      position: relative;
+      min-height: 31px;
+      margin: 8px 0;
+      padding: 0 37px 0 0;
+    }
+    .step-list li::before {
+      counter-increment: steps;
+      content: counter(steps);
+      position: absolute;
+      right: 0;
+      top: 4px;
+      width: 23px;
+      height: 23px;
+      border: 1px solid var(--black);
+      border-radius: 50%;
+      color: var(--black);
+      font: 500 11px/21px var(--latin);
+      text-align: center;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0 23px;
+    }
+    .summary-item {
+      padding: 12px 14px;
+      border: 1px solid #d0d0d0;
+      background: #fff;
+    }
+    .summary-item strong { display: block; margin-bottom: 2px; color: var(--black); }
+    .summary-item span { color: #444; font-size: 14px; line-height: 1.8; }
+
+    details {
+      margin: 11px 0;
+      border: 1px solid #cfcfcf;
+      background: #fff;
+    }
+    summary {
+      padding: 10px 14px;
+      color: var(--black);
+      cursor: pointer;
+      font: 700 16px/1.9 var(--heading);
+    }
+    summary::marker { color: var(--black); }
+    details .inside { padding: 0 15px 11px; border-top: 1px solid #e1e1e1; }
+
+    .closing {
+      margin-top: 54px;
+      padding-top: 16px;
+      border-top: 1px solid var(--black);
+      text-align: center;
+      color: #333;
+      font-size: 15px;
+    }
+    .closing .mark {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+      font: 600 10px/1.7 var(--latin);
+      letter-spacing: .18em;
+      direction: ltr;
+    }
+    .source-note {
+      margin-top: 18px;
+      padding-top: 11px;
+      border-top: 1px solid #dedede;
+      color: #666;
+      font-size: 13px;
+      line-height: 1.9;
+      text-align: right;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 0; background: #fff; font-size: 18px; }
+      .page { width: 100%; margin: 0; padding: 27px 20px 39px; border: 0; box-shadow: none; }
+      .running-head { gap: 10px; font-size: 8px; letter-spacing: .08em; }
+      .title-block { padding: 42px 5px 32px; }
+      h1 { font-size: 36px; }
+      .english-title { font-size: 20px; }
+      .metadata { gap: 5px 13px; font-size: 12px; }
+      .abstract { padding: 12px 14px; font-size: 15px; }
+      section { margin-top: 37px; }
+      h2 { font-size: 22px; gap: 9px; }
+      h3 { font-size: 19px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      pre { font-size: 10px; padding: 12px; }
+      table { min-width: 540px; }
+    }
+
+    .export-toolbar {
+      position: fixed;
+      z-index: 1000;
+      top: 18px;
+      left: 18px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      direction: rtl;
+    }
+    .export-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 17px;
+      border: 1px solid #111;
+      border-radius: 3px;
+      background: #111;
+      color: #fff;
+      font: 700 14px/1.2 "Tajawal", sans-serif;
+      cursor: pointer;
+      box-shadow: 0 3px 12px rgba(0,0,0,.12);
+      transition: background .18s ease, color .18s ease;
+    }
+    .export-button:hover { background: #fff; color: #111; }
+    .export-button:focus-visible { outline: 3px solid #888; outline-offset: 3px; }
+    .export-button svg { width: 17px; height: 17px; flex: 0 0 auto; }
+    @media (max-width: 700px) {
+      .export-toolbar { top: 10px; left: 10px; }
+      .export-button { min-height: 40px; padding: 0 13px; font-size: 13px; }
+    }
+
+    @page { size: A4; margin: 19mm 18mm 20mm; }
+    @media print {
+      .export-toolbar { display: none !important; }
+      body { padding: 0; background: #fff; font-size: 12pt; line-height: 1.95; }
+      .page { width: auto; max-width: none; margin: 0; padding: 0; border: 0; box-shadow: none; }
+      .running-head { position: running(pageHeader); }
+      .code-wrap, .definition, .note, .warning, .example, .result, .principle, table, tr, details { break-inside: avoid; }
+      h2, h3 { break-after: avoid; }
+      section { break-inside: auto; }
+      .title-block { padding-top: 40px; }
+      a { color: inherit; text-decoration: none; }
+      * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  
+    /* --- MathJax rendering polish (matches academic serif style) --- */
+    mjx-container {
+      font-family: "STIX Two Text", "Times New Roman", serif !important;
+    }
+    mjx-container[jax="CHTML"] { direction: ltr; unicode-bidi: isolate; }
+    .formula > mjx-container { margin: 0 !important; }
+    div.formula > mjx-container { display: block; text-align: center; margin: 4px auto !important; }
+    pre code.formula mjx-container { display: block; text-align: center; color: inherit; }
+    mjx-container ::selection { background: #d7e6ff; }
+    </style>
+</head>
+<body>
+
+<div class="export-toolbar" aria-label="أدوات التصدير">
+  <button class="export-button" id="exportPdf" type="button" title="تصدير المرجع بصيغة PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3v11m0 0 4-4m-4 4-4-4"/><path d="M5 16v4h14v-4"/>
+    </svg>
+    <span>تصدير PDF / طباعة</span>
+  </button>
+</div>
+
+<main class="page">
+
+  <div class="running-head">
+    <span class="brand">Advanced Calculus (Math 216)</span>
+    <span>Mansoura University &bull; Faculty of Science &bull; Pure Mathematics</span>
+  </div>
+
+  <header class="title-block">
+    <p class="kicker">COMPREHENSIVE ACADEMIC REFERENCE &bull; FROM ZERO TO ADVANCED CALCULUS</p>
+    <h1>التفاضل العالي والتحليل الرياضي</h1>
+    <div class="english-title">Advanced Calculus &amp; Vector Analysis: From Zero to Mastery</div>
+    <div class="metadata">
+      <span>المصدر المعتمد: <strong>Calculus 2 (Math 216)</strong></span>
+      <span>المؤلفون: <strong>أ.د. حمدي المتولي &amp; د. أسامة معاذ</strong></span>
+      <span>الجهة: <strong>قسم الرياضيات — كلية العلوم — جامعة المنصورة</strong></span>
+      <span>الطبقة المعرفية: <strong>تأسيس شامل من نقطة الصفر حتى الإتقان الرياضي</strong></span>
+    </div>
+    <div class="abstract">
+      <strong>البيان التأسيسي للمرجع:</strong>
+      صُمم هذا المرجع ليكون كتاباً تعليمياً وأكاديمياً متكاملاً لمقرر «التفاضل العالي» (<span class="english">Advanced Calculus</span>)، يبدأ بالمتعلم من نقطة الصفر الرياضي التام في علم التفاضل والتكامل دون أي افتراض مسبق لمعنى الدالة أو النهاية أو الاشتقاق أو التكامل، ثم يبني المفاهيم خطوة بخطوة بالاستناد الحرفي والشامل إلى المقرر الجامعي المعتمد (<span class="english">Math 216</span>) لجامعة المنصورة. يغطي المرجع موضوعات التفاضل الجزئي وتطبيقاته، وحساب القيم القصوى، والتكاملات المتعددة الثنائية والثلاثية في كافة الإحداثيات، وتكاملات المسارات والسطوح والحجوم، ومبرهنات المتجهات الكبرى (غاوس، غرين، وستوكس)، مع الحفاظ التام على أمثلة المصدر وبراهينه وتدقيق أخطائه المطبعية.
+    </div>
+  </header>
+
+
+
+  <!-- [E] Table of Contents — مضاف لضمان التنقل المرجعي الشامل -->
+  <nav class="toc" id="sec-toc" aria-label="فهرس محتويات المرجع">
+    <h2 class="toc-title"><span class="number">فهرس</span> خريطة المحتويات الكاملة للمرجع (21 قسماً)</h2>
+    <p class="toc-note">[E] فهرس تنقّل داخلي أُضيف وفق معيار «المرجع الأكاديمي الموحد»: كل رابط يشير إلى مُعرِّف موجود فعلاً داخل الصفحة. الأقسام الموسومة بـ <span class="english">[P]</span> هي تأسيس من الصفر، والموسومة بـ <span class="english">[S]</span> هي مادة المصدر المعتمدة (Math 216).</p>
+    <ol class="toc-list">
+        <li><a href="#sec-guide"><span class="toc-num">٠٠</span> دليل استخدام المرجع والمنظومة التعليمية</a></li>
+        <li><a href="#sec-prereq-math"><span class="toc-num">٠١</span> [P] بوابة التأسيس الرياضي الشاملة (ما قبل التفاضل)</a></li>
+        <li><a href="#sec-prereq-calc1"><span class="toc-num">٠٢</span> [P] بوابة التفاضل والتكامل أحادي المتغير من الصفر</a></li>
+        <li><a href="#sec-scope-map"><span class="toc-num">٠٣</span> [S] خريطة نطاق مقرر التفاضل العالي (Math 216)</a></li>
+        <li><a href="#sec-several-variables"><span class="toc-num">٠٤</span> [S] دوال المتغيرات المتعددة (Functions of Several Variables)</a></li>
+        <li><a href="#sec-limits-continuity"><span class="toc-num">٠٥</span> [S] النهايات والاستمرارية متعددة الأبعاد (Limits & Continuity)</a></li>
+        <li><a href="#sec-partial-derivatives"><span class="toc-num">٠٦</span> [S] المشتقات الجزئية الأولى (First-Order Partial Derivatives)</a></li>
+        <li><a href="#sec-higher-derivatives"><span class="toc-num">٠٧</span> [S] المشتقات العليا ومبرهنة كليروت (Higher Derivatives & Clairaut's Theorem)</a></li>
+        <li><a href="#sec-pdes"><span class="toc-num">٠٨</span> [S] المعادلات التفاضلية الجزئية (Partial Differential Equations - PDEs)</a></li>
+        <li><a href="#sec-chain-rule"><span class="toc-num">٠٩</span> [S] قاعدة السلسلة متعددة المتغيرات (The Chain Rule)</a></li>
+        <li><a href="#sec-implicit-diff"><span class="toc-num">١٠</span> [S] الاشتقاق الضمني للدوال والسطوح (Implicit Differentiation)</a></li>
+        <li><a href="#sec-max-min"><span class="toc-num">١١</span> [S] القيم العظمى والصغرى ونقاط السرج (Maxima & Minima)</a></li>
+        <li><a href="#sec-double-integrals"><span class="toc-num">١٢</span> [S] التكامل الثنائي (Double Integrals)</a></li>
+        <li><a href="#sec-triple-integrals"><span class="toc-num">١٣</span> [S] التكامل الثلاثي (Triple Integrals)</a></li>
+        <li><a href="#sec-line-integrals"><span class="toc-num">١٤</span> [S] تكاملات المسار / الخطية (Line Integrals)</a></li>
+        <li><a href="#sec-surface-integrals"><span class="toc-num">١٥</span> [S] تكاملات السطح وتدفق الحقول (Surface Integrals & Flux)</a></li>
+        <li><a href="#sec-volume-integrals"><span class="toc-num">١٦</span> [S] التكاملات الحجمية وعلاقة الحجم بالسطح (Volume Integrals)</a></li>
+        <li><a href="#sec-vector-theorems"><span class="toc-num">١٧</span> [S] المبرهنات التكاملية الكبرى في حساب المتجهات (Vector Integral Theorems)</a></li>
+        <li><a href="#sec-practice-bank"><span class="toc-num">١٨</span> بنك المسائل والتمارين المتدرجة (مع الحلول النموذجية المخفية)</a></li>
+        <li><a href="#sec-learning-system"><span class="toc-num">١٩</span> المنظومة التعليمية وسجل تشخيص الأخطاء والمراجعة المتباعدة</a></li>
+        <li><a href="#sec-glossary"><span class="toc-num">٢٠</span> قاموس المصطلحات والرموز المعيارية وبيانات المرجع</a></li>
+    </ol>
+  </nav>
+
+  <!-- Section 00: Reference Guide -->
+  <section id="sec-guide">
+    <h2><span class="number">٠٠</span> دليل استخدام المرجع والمنظومة التعليمية</h2>
+    <p>
+      مرحباً بك في هذا المرجع الأكاديمي المتقدم. صُمم هذا العمل ليكون رحلتك الشاملة والآمنة من الصفر الحقيقي للرياضيات حتى أعلى مراتب التفاضل العالي المتقدم. لا يتطلب هذا المرجع أي معرفة مسبقة بعلم التفاضل والتكامل، ولن تجد فيه عبارة «من الواضح» لتجاوز خطوة جبرية أو برهانية.
+    </p>
+
+    <div class="principle">
+      <span class="box-title">القاعدة الذهبية لدراسة الرياضيات: الفهم قبل القانون</span>
+      <p>
+        الرياضيات ليست مجموعة من الوصفات السحرية للحفظ، بل هي لغة منطقية تصف التغير والتراكم والأنماط الهندسية. لكل معادلة سبب لوجودها، ولكل خطوة مبرر رياضي. إذا واجهت خطوة لم تفهمها، لا تحفظ الناتج؛ بل راجع صندوق التأسيس المرتبط بها حتى يتضح لك السبب الجذري.
+      </p>
+    </div>
+
+    <h3>نظام الوسوم ومستويات المعرفة في هذا المرجع</h3>
+    <p>
+      لضمان الأمانة العلمية المطلقة والفصل الواضح بين ما ورد في المصدر الجامعي وما تم بناؤه لتيسير التعلم، نستخدم نظام الوسوم الصارم التالي:
+    </p>
+
+    <div class="summary-grid">
+      <div class="summary-item">
+        <strong>[S — SOURCE CONTENT] مادة المصدر الأصلي</strong>
+        <span>كل تعريف، أو مبرهنة، أو قانون، أو مثال، أو تمرين ورد نصاً في مقرر جامعة المنصورة (Math 216). تم حفظ نصه ومعطياته وأرقامه بدقة بالغة.</span>
+      </div>
+      <div class="summary-item">
+        <strong>[P — PREREQUISITE BRIDGE] جسر المتطلبات السابقة</strong>
+        <span>شرح تأسيسي من الصفر للمفاهيم التي يعتمد عليها المقرر، مثل مبادئ الجبر، الدوال المثلثية، مفهوم النهاية، والمشتقة الأحادية.</span>
+      </div>
+      <div class="summary-item">
+        <strong>[E — EXPLANATORY SUPPORT] دعم تفسيري وهندسي</strong>
+        <span>أمثلة توضيحية إضافية، رسوم بيانية بالأبيض والأسود، تفسيرات فيزيائية، وجداول مقارنة أنشئت لتثبيت فهم مادة المصدر.</span>
+      </div>
+      <div class="summary-item">
+        <strong>[AUDIT — ملاحظة تدقيق المصدر]</strong>
+        <span>تنبيه علمي يوضح تصحيح سهو مطبعي أو رمز مشوش ورد في طباعة المصدر الأصلية، لضمان صحة البرهان والحساب.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 01: Pre-Calculus Foundations -->
+  <section id="sec-prereq-math">
+    <h2><span class="number">٠١</span> [P] بوابة التأسيس الرياضي الشاملة (ما قبل التفاضل)</h2>
+    <p>
+      إذا كانت هذه هي المرة الأولى التي تدرس فيها الرياضيات الجامعية، أو انقطعت عنها لفترة، فهذا القسم هو جسرك المتين. هنا نضع الأساس الصخري الذي ستستند إليه كل موضوعات التفاضل العالي.
+    </p>
+
+    <h3>١.١ اللغة والرموز الرياضية وقراءتها</h3>
+    <p>
+      في النص العربي، يقرأ الكلام من اليمين إلى اليسار، ولكن <strong>كافة المعادلات والتعبيرات الرياضية تُكتب وتُقرأ حصراً من اليسار إلى اليمين (<span class="english">LTR</span>)</strong>.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>الرمز</th>
+            <th>الاسم بالإنجليزية</th>
+            <th>المعنى والاستخدام</th>
+            <th>مثال توضيحي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>x, y, z</code></td>
+            <td><span class="english">Variables</span></td>
+            <td>متغيرات: كميات تتغير قيمتها في المسألة.</td>
+            <td>في دالة درجة الحرارة، <span class="formula">\(x, y\)</span> يمثلان الموقع.</td>
+          </tr>
+          <tr>
+            <td><code>a, b, c, C</code></td>
+            <td><span class="english">Constants</span></td>
+            <td>ثوابت: كميات لها قيمة محددة لا تتغير مع التفاضل.</td>
+            <td>نصف قطر الكرة <span class="formula">\(a\)</span> في معادلة السطح <span class="formula">\(x^2+y^2+z^2=a^2\)</span>.</td>
+          </tr>
+          <tr>
+            <td><code>∈ , ∉</code></td>
+            <td><span class="english">Element of</span></td>
+            <td>الانتماء لمجموعة: الرمز <span class="formula">\(x \\in D\)</span> يعني أن النقطة تقع داخل المجال <span class="formula">\(D\)</span>.</td>
+            <td><span class="formula">\((1, 2) \\in \mathbb{R}^2\)</span>.</td>
+          </tr>
+          <tr>
+            <td><code>\mathbb{R}, \mathbb{R}^2, \mathbb{R}^3</code></td>
+            <td><span class="english">Real Euclidean Spaces</span></td>
+            <td>مجموعات الأعداد الحقيقية: خط الأعداد (<span class="formula">\(\mathbb{R}\)</span>)، المستوى الإحداثي (<span class="formula">\(\mathbb{R}^2\)</span>)، الفضاء ثلاثي الأبعاد (<span class="formula">\(\mathbb{R}^3\)</span>).</td>
+            <td>مجال دالة المتغيرين هو مجموعة جزئية من <span class="formula">\(\mathbb{R}^2\)</span>.</td>
+          </tr>
+          <tr>
+            <td><code>|x|</code></td>
+            <td><span class="english">Absolute Value</span></td>
+            <td>القيمة المطلقة: المسافة بين <span class="formula">\(x\)</span> والصفر على خط الأعداد. تكون موجبة دائماً أو صفراً.</td>
+            <td><span class="formula">\(|-5| = 5, |3| = 3\)</span>.</td>
+          </tr>
+          <tr>
+            <td><code>\Rightarrow , \Leftrightarrow</code></td>
+            <td><span class="english">Implication / Equivalence</span></td>
+            <td>الاستلزام المنطقي: <span class="formula">\(A \Rightarrow B\)</span> (إذا تحقق A فإن B يتحقق حتماً). <span class="formula">\(\Leftrightarrow\)</span> تكافؤ شرطي ثنائي.</td>
+            <td><span class="formula">\(x = 2 \Rightarrow x^2 = 4\)</span>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>١.٢ المتجهات في الفضاء ثلاثي الأبعاد (<span class="english">Vectors in \mathbb{R}^3</span>)</h3>
+    <p>
+      الفصل الثالث من المصدر يعتمد بصورة كاملة على المتجهات وحساب الحقول الشعاعية. المتجه هو كمية فيزيائية ورياضية تتميز بـ <strong>مقدار</strong> و <strong>اتجاه</strong>.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">تعريف: متجهات الوحدة الأساسية ومتجه الموضع</span>
+      <p>
+        في الفضاء الثلاثي الديكارتي، نعرّف ثلاثة متجهات وحدة متعامدة وموجهة في اتجاهات المحاور الإحداثية الموجبة:
+      </p>
+      <div class="code-wrap">
+        <div class="code-label">Vector Representation</div>
+        <pre><code class="formula">$$\mathbf{i} = (1, 0, 0), \quad \mathbf{j} = (0, 1, 0), \quad \mathbf{k} = (0, 0, 1)
+متجه الموضع للنقطة (x, y, z): \quad \mathbf{r} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}
+طول المتجه (Magnitude): \quad |\mathbf{r}| = \sqrt{x^2 + y^2 + z^2}$$</code></pre>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>العملية</th>
+            <th>الرمز والصيغة الرياضية</th>
+            <th>الناتج</th>
+            <th>المعنى الفيزيائي والهندسي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>الضرب القياسي (<span class="english">Dot Product</span>)</td>
+            <td><span class="formula">\(\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z = |\mathbf{a}||\mathbf{b}|\cos \theta\)</span></td>
+            <td><strong>عدد قياسي (Scalar)</strong></td>
+            <td>يقيس مقدار التوازي والشغل المبذول؛ ينعدم (<span class="formula">\(\mathbf{a}\cdot\mathbf{b}=0\)</span>) إذا وفقط إذا كان المتجهان متعامدين.</td>
+          </tr>
+          <tr>
+            <td>الضرب الاتجاهي (<span class="english">Cross Product</span>)</td>
+            <td><span class="formula">\(\mathbf{a}  imes \mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \ a_x & a_y & a_z \ b_x & b_y & b_z \end{vmatrix}\)</span></td>
+            <td><strong>متجه عمودي (Vector)</strong></td>
+            <td>ينتج متجهاً عمودياً على كلا المتجهين باتباع قاعدة اليد اليمنى، ومقداره يساوي مساحة متوازي الأضلاع الناتج عنهما.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>١.٣ الدوال والمثلثات (<span class="english">Functions &amp; Trigonometry</span>)</h3>
+    <p>
+      الدالة هي علاقة رياضية تُعيّن لكل عنصر من عناصر مجموعة المدخلات (المجال <span class="english">Domain</span>) عنصراً واحداً فقط من مجموعة المخرجات (المدى <span class="english">Range</span>).
+    </p>
+    <div class="note">
+      <span class="box-title">المتطابقات المثلثية الضرورية لحساب التكاملات في المصدر</span>
+      <p>احفظ هذه المتطابقات الأربع لأنها مفتاح حل التكاملات في الفصول القادمة:</p>
+      <ul>
+        <li><span class="formula">\(\sin^2 \theta + \cos^2 \theta = 1\)</span></li>
+        <li><span class="formula">\(\cos^2 \theta = \frac{1 + \cos(2\theta)}{2}\)</span> (تستخدم لخفض رتبة الأسس داخل التكاملات المزدوجة)</li>
+        <li><span class="formula">\(\sin^2 \theta = \frac{1 - \cos(2\theta)}{2}\)</span></li>
+        <li><span class="formula">\(\sin(2\theta) = 2 \sin \theta \cos \theta\)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 02: Single-Variable Calculus From Zero -->
+  <section id="sec-prereq-calc1">
+    <h2><span class="number">٠٢</span> [P] بوابة التفاضل والتكامل أحادي المتغير من الصفر</h2>
+    <p>
+      قبل أن نشتق دالة في متغيرين أو نكامل في الفضاء الثلاثي، يجب أن نفهم بدقة متناهية: <strong>ماذا يعني الاشتقاق في بعد واحد؟ وماذا يعني التكامل؟</strong>
+    </p>
+
+    <h3>٢.١ معدل التغير ومفهوم المشتقة (<span class="english">The Derivative</span>)</h3>
+    <p>
+      تخيل أنك تقود سيارة وقطعت مسافة <span class="formula">\(100 ext{ km}\)</span> في ساعتين. معدل سرعتك المتوسط هو <span class="formula">\(50 ext{ km/h}\)</span>. ولكن هل كانت سرعة السيارة طوال الوقت 50؟ بالطبع لا؛ فقد توقفت عند إشارة المرور وسرت بسرعة 80 على الطريق السريع. <strong>السرعة اللحظية</strong> في ثانية محددة هي بالضبط ما يسمى <strong>المشتقة (<span class="english">Derivative</span>)</strong>.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">التعريف الرسمي للمشتقة بنهاية خارج قسمة الفروق (<span class="english">Difference Quotient</span>)</span>
+      <p>
+        إذا كانت <span class="formula">\(y = f(x)\)</span> دالة، فإن مشتقتها عند النقطة <span class="formula">\(x\)</span> هي معدل التغير اللحظي للدالة بالنسبة لـ <span class="formula">\(x\)</span>، وتُعرّف بأنها:
+      </p>
+      <div class="code-wrap">
+        <div class="code-label">Derivative Definition</div>
+        <pre><code class="formula">$$f'(x) = \frac{df}{dx} = \lim_{h 	o 0} \frac{f(x + h) - f(x)}{h}$$</code></pre>
+      </div>
+      <p>
+        <strong>التفسير الهندسي:</strong> المشتقة <span class="formula">\(f'(a)\)</span> تمثل <strong>ميل المماس (<span class="english">Slope of the Tangent Line</span>)</strong> لمنحنى الدالة عند النقطة <span class="formula">\((a, f(a))\)</span>.
+      </p>
+    </div>
+
+    <h3>٢.٢ قواعد الاشتقاق الأساسية (<span class="english">Differentiation Rules</span>)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>القاعدة</th>
+            <th>الدالة <span class="formula">\(f(x)\)</span></th>
+            <th>المشتقة <span class="formula">\(f'(x)\)</span></th>
+            <th>مثال تطبيقي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>مشتقة الثابت</td>
+            <td><span class="formula">\(c\)</span> (حيث <span class="formula">\(c\)</span> عدد ثابت)</td>
+            <td><span class="formula">\(0\)</span></td>
+            <td><span class="formula">\(\frac{d}{dx}(7) = 0\)</span></td>
+          </tr>
+          <tr>
+            <td>قاعدة القوة (<span class="english">Power Rule</span>)</td>
+            <td><span class="formula">\(x^n\)</span></td>
+            <td><span class="formula">\(n x^{n-1}\)</span></td>
+            <td><span class="formula">\(\frac{d}{dx}(x^4) = 4x^3, \quad \frac{d}{dx}(\sqrt{x}) = \frac{1}{2\sqrt{x}}\)</span></td>
+          </tr>
+          <tr>
+            <td>مشتقة الدالة الأسية الطبيعية</td>
+            <td><span class="formula">\(e^x\)</span></td>
+            <td><span class="formula">\(e^x\)</span></td>
+            <td><span class="formula">\(\frac{d}{dx}(e^{3x}) = 3e^{3x}\)</span></td>
+          </tr>
+          <tr>
+            <td>مشتقة اللوغاريتم الطبيعي</td>
+            <td><span class="formula">\(\ln x\)</span></td>
+            <td><span class="formula">\(\frac{1}{x}\)</span> (مع شرط <span class="formula">\(x > 0\)</span>)</td>
+            <td><span class="formula">\(\frac{d}{dx}(\ln(x^2+1)) = \frac{2x}{x^2+1}\)</span></td>
+          </tr>
+          <tr>
+            <td>مشتقات الدوال المثلثية</td>
+            <td><span class="formula">\(\sin x, \quad \cos x\)</span></td>
+            <td><span class="formula">\(\cos x, \quad -\sin x\)</span></td>
+            <td><span class="formula">\(\frac{d}{dx}(\sin(5x)) = 5\cos(5x)\)</span></td>
+          </tr>
+          <tr>
+            <td>قاعدة الضرب (<span class="english">Product Rule</span>)</td>
+            <td><span class="formula">\(u(x) \cdot v(x)\)</span></td>
+            <td><span class="formula">\(u' v + u v'\)</span></td>
+            <td><span class="formula">\(\frac{d}{dx}(x e^x) = (1)(e^x) + x(e^x) = (1+x)e^x\)</span></td>
+          </tr>
+          <tr>
+            <td>قاعدة القسمة (<span class="english">Quotient Rule</span>)</td>
+            <td><span class="formula">\(\frac{u(x)}{v(x)}\)</span></td>
+            <td><span class="formula">\(\frac{u' v - u v'}{v^2}\)</span> (مع <span class="formula">\(v(x) 
+e 0\)</span>)</td>
+            <td><span class="formula">\(\frac{d}{dx}\left(\frac{x}{x+1}\right) = \frac{1(x+1) - x(1)}{(x+1)^2} = \frac{1}{(x+1)^2}\)</span></td>
+          </tr>
+          <tr>
+            <td>قاعدة السلسلة (<span class="english">Chain Rule</span>)</td>
+            <td><span class="formula">\(f(g(x))\)</span></td>
+            <td><span class="formula">\(f'(g(x)) \cdot g'(x)\)</span></td>
+            <td><span class="formula">\(\frac{d}{dx}((x^2+1)^5) = 5(x^2+1)^4 \cdot (2x) = 10x(x^2+1)^4\)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>٢.٣ مفهوم التكامل والتراكم (<span class="english">Integration &amp; Riemann Sums</span>)</h3>
+    <p>
+      إذا كان الاشتقاق هو تفكيك الكل لمعرفة معدل التغير اللحظي، فإن <strong>التكامل (<span class="english">Integration</span>)</strong> هو العملية العكسية تماماً: <strong>تجميع وتراكم الأجزاء المتناهية في الصغر لإيجاد الكل (المساحة، الحجم، الشغل، الكتلة)</strong>.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">تعريف: مجموع ريمان والتكامل المحدد (<span class="english">Definite Integral</span>)</span>
+      <p>
+        لحساب المساحة تحت منحنى الدالة الموجبة <span class="formula">\(y = f(x)\)</span> على الفترة <span class="formula">\([a, b]\)</span>، نقسم الفترة إلى <span class="formula">\(n\)</span> من المستطيلات الرقيقة بعرض <span class="formula">\(\Delta x = \frac{b-a}{n}\)</span> وارتفاع <span class="formula">\(f(x_i^*)\)</span>. التكامل المحدد هو نهاية هذا المجموع عندما يؤول عدد المستطيلات إلى اللانهاية:
+      </p>
+      <div class="code-wrap">
+        <div class="code-label">Riemann Sum to Integral</div>
+        <pre><code class="formula">$$\int_a^b f(x)\,dx = \lim_{n 	o \infty} \sum_{i=1}^n f(x_i^*) \Delta x$$</code></pre>
+      </div>
+      <p>
+        <strong>مبرهنة الأساس في التفاضل والتكامل (<span class="english">Fundamental Theorem of Calculus</span>):</strong>
+        إذا كانت <span class="formula">\(F(x)\)</span> دالة أصلية للدالة المتصلة <span class="formula">\(f(x)\)</span> (أي أن <span class="formula">\(F'(x) = f(x)\)</span>)، فإن:
+        <span class="formula">\(\int_a^b f(x)\,dx = F(b) - F(a)\)</span>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 03: Architecture of Math 216 -->
+  <section id="sec-scope-map">
+    <h2><span class="number">٠٣</span> [S] خريطة نطاق مقرر التفاضل العالي (Math 216)</h2>
+    <p>
+      بناءً على المصدر الجامعي المعتمد (152 صفحة) لجامعة المنصورة، ينقسم مقرر التفاضل والتكامل العالي للفرقة الثانية إلى ثلاثة أركان رئيسية متعاضدة:
+    </p>
+
+    <div class="summary-grid">
+      <div class="summary-item">
+        <strong>الفصل الأول: التفاضل الجزئي (ص 3–75)</strong>
+        <span>دوال المتغيرات المتعددة، تعيين المجالات، النهايات والاستمرارية ثنائية وثلاثية الأبعاد، المشتقات الجزئية الأولى والعليا، مبرهنة كليروت، المعادلات التفاضلية الجزئية الفيزيائية، قاعدة السلسلة، الاشتقاق الضمني، وحساب القيم العظمى والصغرى ونقاط السرج مع مسائل التحسين.</span>
+      </div>
+      <div class="summary-item">
+        <strong>الفصل الثاني: التكاملات المتعددة (ص 76–106)</strong>
+        <span>التكامل الثنائي على المستطيلات والمناطق العامة، مبرهنة فوبيني، عكس ترتيب التكامل، التكامل الثنائي في الإحداثيات القطبية، التكامل الثلاثي في الإحداثيات الديكارتية والأسطوانية والكروية، اشتقاق مصفوفات جاكوبي، وإثبات حجوم وكتل المجسمات.</span>
+      </div>
+      <div class="summary-item">
+        <strong>الفصل الثالث: تكاملات المسار والسطح ومبرهنات المتجهات (ص 107–151)</strong>
+        <span>تكاملات المسار بأنواعها الثلاثة (القياسية والشغلية والاتجاهية)، طوبولوجيا المناطق البسيطة والمضاعفة الترابط، استقلال المسار والحقول المحافظة، تكاملات السطح وتدفق الحقول، تكاملات الحجوم، والمبرهنات المتجهية العظمى: غاوس (التباعد)، غرين، وستوكس مع براهينها وتطبيقاتها في ديناميكا الموائع.</span>
+      </div>
+      <div class="summary-item">
+        <strong>المنظومة التربوية المصاحبة</strong>
+        <span>بطاقات تفسير المعادلات، براهين خطوة بخطوة خالية من القفزات، تدقيق الأخطاء المطبعية الأصلية، تمارين تفاعلية مخفية الحل، وجدول مراجعة متباعدة لضمان ترسيخ المفاهيم في الذاكرة طويلة المدى.</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section 04: Functions of Several Variables -->
+  <section id="sec-several-variables">
+    <h2><span class="number">٠٤</span> [S] دوال المتغيرات المتعددة (Functions of Several Variables)</h2>
+    <p>
+      في العالم الحقيقي، نادراً ما تتوقف الظواهر الفيزيائية على متغير واحد. فدرجة الحرارة <span class="formula">\(T\)</span> في أي نقطة على سطح الأرض لا تتوقف على خط الطول <span class="formula">\(x\)</span> وحده، بل على خط الطول وخط العرض <span class="formula">\(y\)</span> والارتفاع <span class="formula">\(z\)</span>. وكذلك حجم الأسطوانة الدائرية القائمة <span class="formula">\(V\)</span> يعتمد على نصف قطر قاعدتها <span class="formula">\(r\)</span> وارتفاعها <span class="formula">\(h\)</span> وفق القانون الشهير <span class="formula">\(V = \pi r^2 h\)</span>. هنا نقول إن <span class="formula">\(V\)</span> هي دالة في متغيرين مستقلين هما <span class="formula">\(r\)</span> و <span class="formula">\(h\)</span>، ونكتب <span class="formula">\(V(r, h) = \pi r^2 h\)</span>.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">تعريف المصدر: دالة المتغيرين ومجالها ومداها (Definition, p. 4)</span>
+      <p>
+        <strong>الدالة <span class="formula">\(f\)</span> في متغيرين (<span class="english">Function of two variables</span>)</strong> هي قاعدة رياضية تُعيّن لكل زوج مرتب من الأعداد الحقيقية <span class="formula">\((x, y)\)</span> في مجموعة <span class="formula">\(D\)</span> عدداً حقيقياً وحيداً يُرمز له بالرمز <span class="formula">\(f(x, y)\)</span>.
+      </p>
+      <ul>
+        <li><strong>المجال (<span class="english">Domain - D</span>):</strong> هو مجموعة جميع الأزواج المرتبة <span class="formula">\((x, y) \in \mathbb{R}^2\)</span> التي تكون الدالة عندها معرفة وذات قيمة حقيقية مقبولة.</li>
+        <li><strong>المدى (<span class="english">Range</span>):</strong> هو مجموعة القيم الحقيقية التي تأخذها الدالة، أي: <span class="formula">\(\{f(x, y) \mid (x, y) \in D\} \subseteq \mathbb{R}\)</span>.</li>
+      </ul>
+      <p>
+        نكتب عادةً <span class="formula">\(z = f(x, y)\)</span> لتوضيح القيمة التي تأخذها الدالة؛ حيث يُسمى <span class="formula">\(x\)</span> و <span class="formula">\(y\)</span> <strong>متغيرين مستقلين (<span class="english">Independent variables</span>)</strong>، بينما يُسمى <span class="formula">\(z\)</span> <strong>المتغير التابع (<span class="english">Dependent variable</span>)</strong>.
+      </p>
+    </div>
+
+    <h3>٤.١ كيفية تعيين مجال الدالة خطوة بخطوة</h3>
+    <p>
+      عند إيجاد مجال دالة متعددة المتغيرات، نفحص القيود الجبرية الثلاثة الكبرى في الأعداد الحقيقية:
+    </p>
+    <ol class="step-list">
+      <li><strong>شبهة القسمة على صفر:</strong> أي مقام يجب أن يكون <span class="formula">\(\ne 0\)</span>.</li>
+      <li><strong>الجذور ذات الدليل الزوجي:</strong> ما بداخل الجذر التربيعي يجب أن يكون موجباً أو صفراً (<span class="formula">\(\ge 0\)</span>).</li>
+      <li><strong>اللوغاريتمات الطبيعية:</strong> ما بداخل اللوغاريتم يجب أن يكون موجباً تماماً (<span class="formula">\(> 0\)</span>).</li>
+    </ol>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي ١ (Example 1, p. 5): حساب القيم والمجال</span>
+      <p><strong>نص المسألة:</strong> لكل من الدوال الآتية، احسب قيمة <span class="formula">\(f(3, 2)\)</span> وعيّن مجال الدالة (<span class="english">Domain</span>):</p>
+      <div class="code-wrap">
+        <div class="code-label">Problems from Source</div>
+        <pre><code class="formula">$$(a) \quad f(x, y) = \frac{\sqrt{x + y + 1}}{x - 1} \qquad\qquad (b) \quad f(x, y) = x \ln(y^2 - x)$$</code></pre>
+      </div>
+
+      <p><strong>خطوات الحل التفصيلية للمسألة (a):</strong></p>
+      <ol>
+        <li>
+          <strong>التعويض لحساب <span class="formula">\(f(3, 2)\)</span>:</strong><br>
+          نعوض بـ <span class="formula">\(x = 3\)</span> و <span class="formula">\(y = 2\)</span> مباشرة في صيغة الدالة:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$f(3, 2) = \frac{\sqrt{3 + 2 + 1}}{3 - 1} = \frac{\sqrt{6}}{2}$$ 
+</div>
+        </li>
+        <li>
+          <strong>تعيين شرط المجال <span class="formula">\(D\)</span>:</strong><br>
+          الدالة تحتوي على جذر تربيعي في البسط، ومقام يجب ألا ينعدم:
+          <ul>
+            <li>شرط ما تحت الجذر: <span class="formula">\(x + y + 1 \ge 0 \implies y \ge -x - 1\)</span>.</li>
+            <li>شرط عدم انعدام المقام: <span class="formula">\(x - 1 \ne 0 \implies x \ne 1\)</span>.</li>
+          </ul>
+          وبالتالي يُكتب المجال بالصيغة الرمزية الدقيقة:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$D = \{(x, y) \in \mathbb{R}^2 \mid x + y + 1 \ge 0 \quad \text{and} \quad x \ne 1\}$$ 
+</div>
+        </li>
+        <li>
+          <strong>التفسير الهندسي للمجال:</strong>
+          المتباينة <span class="formula">\(y \ge -x - 1\)</span> تصف هندسياً جميع النقاط الواقعة على المستقيم <span class="formula">\(y = -x - 1\)</span> أو أعلاه، مع استبعاد جميع نقاط الخط الرأسي <span class="formula">\(x = 1\)</span> الذي يجعل المقام صفراً.
+        </li>
+      </ol>
+
+      <p><strong>خطوات الحل التفصيلية للمسألة (b):</strong></p>
+      <ol>
+        <li>
+          <strong>التعويض لحساب <span class="formula">\(f(3, 2)\)</span>:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$f(3, 2) = 3 \ln(2^2 - 3) = 3 \ln(4 - 3) = 3 \ln(1) = 3 \cdot 0 = 0$$ 
+</div>
+        </li>
+        <li>
+          <strong>تعيين شرط المجال:</strong><br>
+          اللوغاريتم الطبيعي <span class="formula">\(\ln(y^2 - x)\)</span> معرف فقط عندما يكون داخله موجباً تماماً:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$y^2 - x > 0 \implies x < y^2$$ 
+</div>
+          إذن المجال هو:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$D = \{(x, y) \in \mathbb{R}^2 \mid x < y^2\}$$ 
+</div>
+          <strong>التفسير الهندسي:</strong> هو المنطقة المفتوحة الواقعة على يسار القطع المكافئ الأفقي <span class="formula">\(x = y^2\)</span> دون تضمين منحنى القطع نفسه.
+        </li>
+      </ol>
+    </div>
+
+    <h3>٤.٢ التمثيل البياني ومنحنيات المستوى (<span class="english">Level Curves &amp; Surfaces</span>)</h3>
+    <p>
+      التمثيل البياني لدالة في متغير واحد <span class="formula">\(y = f(x)\)</span> هو منحنى في المستوى <span class="formula">\(\mathbb{R}^2\)</span>. أما دالة المتغيرين <span class="formula">\(z = f(x, y)\)</span> فتمثيلها البياني هو <strong>سطح ثلاثي الأبعاد (<span class="english">Surface S</span>)</strong> في الفضاء <span class="formula">\(\mathbb{R}^3\)</span>.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">تعريف: منحنيات المستوى (Level Curves / Contours)</span>
+      <p>
+        <strong>منحنيات المستوى (<span class="english">Level Curves</span>)</strong> للدالة <span class="formula">\(f(x, y)\)</span> هي المنحنيات في المستوى الإحداثي <span class="formula">\(xy\)</span> التي تأخذ الدالة عندها قيمة ثابتة <span class="formula">\(k\)</span>:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$f(x, y) = k \quad (\text{where } k \text{ is a constant in the range of } f)$$ 
+</div>
+      <p>
+        وهي تشبه تماماً خطوط الكنتور في الخرائط الجغرافية التي تصل بين النقاط ذات الارتفاع المتساوي؛ حيث يشير تقارب المنحنيات إلى انحدار شديد للسطح، بينما يشير تباعدها إلى انحدار لطيف.
+      </p>
+    </div>
+
+    <!-- Monochrome SVG Diagram for Level Curves -->
+    <div style="text-align:center; margin:22px 0;">
+      <svg width="420" height="220" viewBox="0 0 420 220" style="background:#fafafa; border:1px solid #d0d0d0; max-width:100%;">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#111"/>
+          </marker>
+        </defs>
+        <!-- Axes -->
+        <line x1="210" y1="200" x2="210" y2="20" stroke="#111" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="20" y1="110" x2="400" y2="110" stroke="#111" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="405" y="115" font-family="STIX Two Text" font-size="14" fill="#111">x</text>
+        <text x="215" y="18" font-family="STIX Two Text" font-size="14" fill="#111">y</text>
+        <!-- Concentric circles for paraboloid z = x^2 + y^2 -->
+        <circle cx="210" cy="110" r="25" fill="none" stroke="#222" stroke-width="1.2"/>
+        <circle cx="210" cy="110" r="50" fill="none" stroke="#444" stroke-width="1.2"/>
+        <circle cx="210" cy="110" r="75" fill="none" stroke="#666" stroke-width="1.2"/>
+        <text x="238" y="105" font-family="STIX Two Text" font-size="11" fill="#111">k=1</text>
+        <text x="263" y="105" font-family="STIX Two Text" font-size="11" fill="#333">k=4</text>
+        <text x="288" y="105" font-family="STIX Two Text" font-size="11" fill="#555">k=9</text>
+        <text x="140" y="212" font-family="Tajawal" font-size="13" font-weight="700" fill="#111">شكل ١: منحنيات المستوى للسطح المكافئ z = x² + y²</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Section 05: Limits and Continuity in Higher Dimensions -->
+  <section id="sec-limits-continuity">
+    <h2><span class="number">٠٥</span> [S] النهايات والاستمرارية متعددة الأبعاد (Limits &amp; Continuity)</h2>
+    <p>
+      في التفاضل أحادي المتغير، عندما تقترب <span class="formula">\(x\)</span> من النقطة <span class="formula">\(a\)</span> على خط الأعداد، لا يوجد سوى اتجاهين فقط: من اليمين أو من اليسار. أما في المستوى <span class="formula">\(\mathbb{R}^2\)</span>، فإن النقطة <span class="formula">\((x, y)\)</span> يمكنها الاقتراب من <span class="formula">\((a, b)\)</span> عبر <strong>عدد لا نهائي من المسارات والمنحنيات</strong> (مستقيمات، قطوع مكافئة، دوال تكعيبية، وحلزونات).
+    </p>
+
+    <div class="definition">
+      <span class="box-title">التعريف الصارم للنهاية ε-δ في بعدين (Definition 1, p. 12)</span>
+      <p>
+        لتكن <span class="formula">\(f\)</span> دالة في متغيرين مجالها <span class="formula">\(D\)</span>. نقول إن نهاية <span class="formula">\(f(x, y)\)</span> عندما تقترب <span class="formula">\((x, y)\)</span> من النقطة <span class="formula">\((a, b)\)</span> تساوي <span class="formula">\(L\)</span>، ونكتب:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:10px 0;">
+ $$\lim_{(x, y) \to (a, b)} f(x, y) = L$$ 
+</div>
+      <p>
+        إذا تحقق الشرط الدقيق التالي: <strong>لكل عدد موجب <span class="formula">\(\varepsilon > 0\)</span>، يوجد عدد موجب <span class="formula">\(\delta > 0\)</span> بحيث إذا كانت <span class="formula">\((x, y) \in D\)</span> وحققت:</strong>
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$0 < \sqrt{(x - a)^2 + (y - b)^2} < \delta \implies |f(x, y) - L| < \varepsilon$$ 
+</div>
+      <p>
+        <strong>المعنى الهندسي:</strong> الكمية <span class="formula">\(\sqrt{(x - a)^2 + (y - b)^2}\)</span> هي المسافة الإقليدية الدائرية بين النقطة <span class="formula">\((x, y)\)</span> ونقطة الهدف <span class="formula">\((a, b)\)</span>. الشرط يعني أنه كلما اقتربت النقطة من المركز داخل قرص نصف قطره <span class="formula">\(\delta\)</span>، فإن قيم الدالة تُحبس بالضرورة داخل فترة صغيرة جداً <span class="formula">\((L - \varepsilon, L + \varepsilon)\)</span>.
+      </p>
+    </div>
+
+    <h3>٥.١ اختبار المسارين لإثبات عدم وجود النهاية (<span class="english">The Two-Path Test</span>)</h3>
+    <div class="principle">
+      <span class="box-title">مبرهنة اختبار المسارات</span>
+      <p>
+        إذا اقتربت الدالة <span class="formula">\(f(x, y)\)</span> من قيمتين مختلفتين <span class="formula">\(L_1 \ne L_2\)</span> عند الاقتراب من <span class="formula">\((a, b)\)</span> عبر مسارين مختلفين، أو إذا اعتمدت القيمة الناتجة على ميل المسار <span class="formula">\(m\)</span>، فإن <strong>النهاية غير موجودة حتماً (<span class="english">The limit does not exist</span>)</strong>.
+      </p>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي ١ (Example 1, p. 12): اختبار المحاور</span>
+      <p><strong>المسألة:</strong> أثبت أن النهاية الآتية غير موجودة:</p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\lim_{(x, y) \to (0, 0)} \frac{x^2 - y^2}{x^2 + y^2}$$ 
+</div>
+      <p><strong>الحل البرهاني خطوة بخطوة:</strong></p>
+      <ol>
+        <li>
+          <strong>المسار الأول (الاقتراب على طول محور السينات <span class="formula">\(x\text{-axis}\)</span> حيث <span class="formula">\(y = 0\)</span>):</strong><br>
+          بوضع <span class="formula">\(y = 0\)</span> مع بقاء <span class="formula">\(x \ne 0\)</span>، تصبح الدالة:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$f(x, 0) = \frac{x^2 - 0^2}{x^2 + 0^2} = \frac{x^2}{x^2} = 1 \implies \lim_{x \to 0} f(x, 0) = 1$$ 
+</div>
+        </li>
+        <li>
+          <strong>المسار الثاني (الاقتراب على طول محور الصادات <span class="formula">\(y\text{-axis}\)</span> حيث <span class="formula">\(x = 0\)</span>):</strong><br>
+          بوضع <span class="formula">\(x = 0\)</span> مع بقاء <span class="formula">\(y \ne 0\)</span>، تصبح الدالة:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$f(0, y) = \frac{0^2 - y^2}{0^2 + y^2} = \frac{-y^2}{y^2} = -1 \implies \lim_{y \to 0} f(0, y) = -1$$ 
+</div>
+        </li>
+        <li>
+          <strong>الاستنتاج:</strong> بما أن النهاية على طول محور <span class="formula">\(x\)</span> تساوي <span class="formula">\(1\)</span>، بينما على طول محور <span class="formula">\(y\)</span> تساوي <span class="formula">\(-1\)</span>، وهما قيمتان مختلفتان (<span class="formula">\(1 \ne -1\)</span>)، إذن <strong>النهاية غير موجودة حتماً</strong>.
+        </li>
+      </ol>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي ٢ (Example 2, p. 13): عائلة المستقيمات <span class="formula">\(y = mx\)</span></span>
+      <p><strong>المسألة:</strong> هل النهاية <span class="formula">\(\lim_{(x, y) \to (0, 0)} \frac{xy}{x^2 + y^2}\)</span> موجودة؟</p>
+      <p><strong>الحل:</strong></p>
+      <ol>
+        <li>على طول محور <span class="formula">\(x\)</span> (<span class="formula">\(y = 0\)</span>): <span class="formula">\(f(x, 0) = \frac{0}{x^2} = 0\)</span>.</li>
+        <li>على طول المستقيم <span class="formula">\(y = x\)</span>: <span class="formula">\(f(x, x) = \frac{x \cdot x}{x^2 + x^2} = \frac{x^2}{2x^2} = \frac{1}{2}\)</span>.</li>
+        <li>بشكل عام، على طول أي خط مستقيم يمر بالأصل <span class="formula">\(y = mx\)</span>:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$f(x, mx) = \frac{x(mx)}{x^2 + (mx)^2} = \frac{m x^2}{x^2(1 + m^2)} = \frac{m}{1 + m^2}$$ 
+</div>
+          الناتج يعتمد على ميل الخط <span class="formula">\(m\)</span> (إذا كان <span class="formula">\(m=1\)</span> فالناتج <span class="formula">\(1/2\)</span>، وإذا كان <span class="formula">\(m=2\)</span> فالناتج <span class="formula">\(2/5\)</span>). إذن النهاية <strong>غير موجودة</strong>.
+        </li>
+      </ol>
+    </div>
+
+    <div class="warning">
+      <span class="box-title">فخ امتحاني خطير: متى تفشل الخطوط المستقيمة <span class="formula">\(y = mx\)</span>؟</span>
+      <p>
+        إذا اختبرت عائلة الخطوط <span class="formula">\(y = mx\)</span> ووجدتها جميعاً تعطي نفس القيمة (مثلاً 0)، <strong>فهذا لا يثبت أبداً أن النهاية موجودة!</strong> فقد تكون النهاية مختلفة على طول مسار منحنٍ كالمكافئ <span class="formula">\(x = y^2\)</span>.
+      </p>
+      <p>
+        <strong>مثال شهير من المصدر:</strong> الدالة <span class="formula">\(f(x, y) = \frac{xy^2}{x^2 + y^4}\)</span>.
+        إذا وضعت <span class="formula">\(y = mx\)</span> تجد:
+        <span class="formula">\(\lim_{x \to 0} \frac{x(m^2 x^2)}{x^2 + m^4 x^4} = \lim_{x \to 0} \frac{m^2 x}{1 + m^4 x^2} = 0\)</span> لجميع قيم <span class="formula">\(m\)</span>.
+        ولكن إذا اقتربنا على طول القطع المكافئ <span class="formula">\(x = y^2\)</span>:
+        <span class="formula">\(f(y^2, y) = \frac{(y^2)y^2}{(y^2)^2 + y^4} = \frac{y^4}{2y^4} = \frac{1}{2}\)</span>!
+        وبما أن <span class="formula">\(0 \ne 1/2\)</span> فالنهاية غير موجودة. <em>(القاعدة: وازن دائماً بين درجات الحدود في البسط والمقام لاختيار المسار المناسب)</em>.
+      </p>
+    </div>
+
+    <h3>٥.٢ حساب النهايات الموجودة باستخدام الإحداثيات القطبية (<span class="english">Polar Coordinates</span>)</h3>
+    <p>
+      إذا كانت النهاية موجودة، فإن اختبار المسارات لا يصلح لحسابها. أقوى أداة لحساب النهايات عند النقطة <span class="formula">\((0, 0)\)</span> هي التحويل إلى الإحداثيات القطبية:
+      <span class="formula">\(x = r \cos\theta, \quad y = r \sin\theta, \quad x^2 + y^2 = r^2\)</span> حيث <span class="formula">\(r \to 0^+\)</span>.
+    </p>
+
+    <div class="example">
+      <span class="box-title">[E] مثال تطبيقي على الإحداثيات القطبية</span>
+      <p>احسب النهاية: <span class="formula">\(\lim_{(x, y) \to (0, 0)} \frac{3x^2 y}{x^2 + y^2}\)</span>.</p>
+      <p><strong>الحل:</strong></p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\lim_{r \to 0^+} \frac{3 (r^2 \cos^2\theta) (r \sin\theta)}{r^2} = \lim_{r \to 0^+} [3r \cos^2\theta \sin\theta]$$ 
+</div>
+      <p>
+        بما أن <span class="formula">\(|\cos^2\theta \sin\theta| \le 1\)</span> لكمية محصورة، وحاصل ضربها في <span class="formula">\(r \to 0\)</span> يؤول إلى الصفر بمبرهنة الحصر، فإن <strong>النهاية موجودة وتساوي <span class="formula">\(0\)</span></strong> مستقلاً عن الزاوية <span class="formula">\(\theta\)</span>.
+      </p>
+    </div>
+
+    <h3>٥.٣ استمرارية الدوال متعددة المتغيرات (<span class="english">Continuity</span>)</h3>
+    <div class="definition">
+      <span class="box-title">تعريف الاستمرارية (Continuity Definition, p. 21)</span>
+      <p>
+        تكون الدالة <span class="formula">\(f(x, y)\)</span> <strong>متصلة عند النقطة <span class="formula">\((a, b)\)</span></strong> إذا تحققت الشروط الثلاثة معاً:
+      </p>
+      <ol>
+        <li>الدالة معرفة عند النقطة، أي أن <span class="formula">\(f(a, b)\)</span> موجودة وحقيقية.</li>
+        <li>نهاية الدالة عندما <span class="formula">\((x, y) \to (a, b)\)</span> موجودة.</li>
+        <li>قيمة النهاية تطابق تماماً قيمة الدالة: <span class="formula">\(\lim_{(x, y) \to (a, b)} f(x, y) = f(a, b)\)</span>.</li>
+      </ol>
+    </div>
+
+    <div class="note">
+      <span class="box-title">[AUDIT] ملاحظة تدقيقية على استمرارية الدوال في 3 متغيرات (ص 22)</span>
+      <p>
+        في الصفحة 22 من المصدر، وردت صياغة نهاية الدالة في 3 متغيرات على الصورة:
+        <span class="formula">\(\lim_{(x, y, c) \to (a, b, c)} f(x, y, c) = f(a, b, c)\)</span>.
+        ننبه الدارس إلى أن الحرف <span class="formula">\(c\)</span> في الطرف الأيسر هو سهو مطبعي في المصدر، والصواب الرياضي المعياري هو أن المتغير هو <span class="formula">\(z\)</span> الذي يقترب من الثابت <span class="formula">\(c\)</span>:
+        <span class="formula">\(\lim_{(x, y, z) \to (a, b, c)} f(x, y, z) = f(a, b, c)\)</span>.
+      </p>
+      <p>
+        <strong>مثال المصدر على سطح الانقطاع:</strong> الدالة الكسرية <span class="formula">\(f(x, y, z) = \frac{1}{x^2 + y^2 + z^2 - 1}\)</span> متصلة في كل الفضاء <span class="formula">\(\mathbb{R}^3\)</span> باستثناء النقاط التي ينعدم عندها المقام، أي على <strong>سطح الكرة التي مركزها نقطة الأصل ونصف قطرها 1</strong> (<span class="formula">\(x^2 + y^2 + z^2 = 1\)</span>).
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 06: Partial Derivatives -->
+  <section id="sec-partial-derivatives">
+    <h2><span class="number">٠٦</span> [S] المشتقات الجزئية الأولى (First-Order Partial Derivatives)</h2>
+    <p>
+      ما الذي يحدث إذا كانت الدالة تعتمد على متغيرين <span class="formula">\(z = f(x, y)\)</span>، وأردنا قياس معدل تغيرها عندما نغير <span class="formula">\(x\)</span> فقط بينما نحافظ على <span class="formula">\(y\)</span> ثابتاً لا يتغير؟ هذه العملية هي جوهر <strong>الاشتقاق الجزئي (<span class="english">Partial Differentiation</span>)</strong>.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">التعريف الرياضي للمشتقات الجزئية بنهاية خارج القسمة (p. 27)</span>
+      <p>
+        إذا كانت <span class="formula">\(f(x, y)\)</span> دالة في متغيرين، نعرّف:
+      </p>
+      <ul>
+        <li>
+          <strong>المشتقة الجزئية بالنسبة لـ <span class="formula">\(x\)</span> عند النقطة <span class="formula">\((a, b)\)</span>:</strong>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$f_x(a, b) = \frac{\partial f}{\partial x}(a, b) = \lim_{h \to 0} \frac{f(a + h, b) - f(a, b)}{h}$$ 
+</div>
+        </li>
+        <li>
+          <strong>المشتقة الجزئية بالنسبة لـ <span class="formula">\(y\)</span> عند النقطة <span class="formula">\((a, b)\)</span>:</strong>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$f_y(a, b) = \frac{\partial f}{\partial y}(a, b) = \lim_{h \to 0} \frac{f(a, b + h) - f(a, b)}{h}$$ 
+</div>
+        </li>
+      </ul>
+    </div>
+
+    <h3>٦.١ التفسير الهندسي البصري للمشتقة الجزئية</h3>
+    <p>
+      هندسياً، معادلة <span class="formula">\(z = f(x, y)\)</span> تمثل سطحاً في الفضاء.
+      عند تثبيت <span class="formula">\(y = b\)</span>، فإننا نقوم بقطع السطح بمستوى رأسي يوازي المستوى <span class="formula">\(xz\)</span>، وينتج عن هذا التقاطع منحنى أثر (<span class="english">Trace curve C_1</span>).
+      <strong>المشتقة الجزئية <span class="formula">\(f_x(a, b)\)</span> هي ميل المماس (<span class="english">Slope of Tangent</span>) لهذا المنحنى <span class="formula">\(C_1\)</span> عند النقطة <span class="formula">\((a, b, f(a, b))\)</span>.</strong> وبالمثل، <span class="formula">\(f_y(a, b)\)</span> هي ميل المماس لمنحنى الأثر الناتج عن قطع السطح بالمستوى الرأسي <span class="formula">\(x = a\)</span>.
+    </p>
+
+    <h3>٦.٢ قاعدة الحساب العملية للمشتقات الجزئية</h3>
+    <div class="principle">
+      <span class="box-title">قاعدة الذهب في الحساب</span>
+      <ol>
+        <li>لإيجاد <span class="formula">\(f_x\)</span>: عامل المتغير <span class="formula">\(y\)</span> وكأنه <strong>عدد ثابت تماماً</strong> (مثل الرقم 5 أو <span class="formula">\(\pi\)</span>)، ثم اشتق الدالة بالنسبة لـ <span class="formula">\(x\)</span> باستخدام قواعد الاشتقاق العادية.</li>
+        <li>لإيجاد <span class="formula">\(f_y\)</span>: عامل المتغير <span class="formula">\(x\)</span> وكأنه <strong>عدد ثابت تماماً</strong>، ثم اشتق الدالة بالنسبة لـ <span class="formula">\(y\)</span>.</li>
+      </ol>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر (ص 30–32): اشتقاق دوال متنوعة في متغيرين وثلاثة متغيرات</span>
+      <p><strong>المسألة ١:</strong> أوجد <span class="formula">\(f_x\)</span> و <span class="formula">\(f_y\)</span> للدالة <span class="formula">\(f(x, y) = x^3 + x^2 y^3 - 2y^2\)</span>.</p>
+      <p><strong>الحل:</strong></p>
+      <ul>
+        <li>
+          <strong>لحساب <span class="formula">\(f_x\)</span> (نثبت <span class="formula">\(y\)</span>):</strong><br>
+          مشتقة <span class="formula">\(x^3\)</span> هي <span class="formula">\(3x^2\)</span>. وفي الحد <span class="formula">\(x^2 y^3\)</span> نعتبر <span class="formula">\(y^3\)</span> معاملاً ثابتاً، فتكون مشتقته <span class="formula">\(2x y^3\)</span>. والحد <span class="formula">\(-2y^2\)</span> ثابت خالص مشتقته <span class="formula">\(0\)</span>.
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$f_x(x, y) = 3x^2 + 2x y^3$$ 
+</div>
+        </li>
+        <li>
+          <strong>لحساب <span class="formula">\(f_y\)</span> (نثبت <span class="formula">\(x\)</span>):</strong><br>
+          الحد <span class="formula">\(x^3\)</span> ثابت مشتقته <span class="formula">\(0\)</span>. والحد <span class="formula">\(x^2 y^3\)</span> معامله الثابت <span class="formula">\(x^2\)</span> ومشتقة <span class="formula">\(y^3\)</span> هي <span class="formula">\(3y^2\)</span> فيعطي <span class="formula">\(3x^2 y^2\)</span>. والحد <span class="formula">\(-2y^2\)</span> مشتقته <span class="formula">\(-4y\)</span>:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$f_y(x, y) = 3x^2 y^2 - 4y$$ 
+</div>
+        </li>
+      </ul>
+
+      <p><strong>المسألة ٢ (ثلاثة متغيرات، ص 32):</strong> إذا كانت <span class="formula">\(f(x, y, z) = e^{xy} \ln z\)</span>، أوجد المشتقات الجزئية الثلاث الأولى.</p>
+      <p><strong>الحل:</strong></p>
+      <ul>
+        <li><span class="formula">\(f_x = \frac{\partial}{\partial x}(e^{xy}) \ln z = (y e^{xy}) \ln z = y e^{xy} \ln z\)</span></li>
+        <li><span class="formula">\(f_y = \frac{\partial}{\partial y}(e^{xy}) \ln z = (x e^{xy}) \ln z = x e^{xy} \ln z\)</span></li>
+        <li><span class="formula">\(f_z = e^{xy} \frac{\partial}{\partial z}(\ln z) = e^{xy} \cdot \frac{1}{z} = \frac{e^{xy}}{z}\)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 07: Higher Order Derivatives and Clairaut's Theorem -->
+  <section id="sec-higher-derivatives">
+    <h2><span class="number">٠٧</span> [S] المشتقات العليا ومبرهنة كليروت (Higher Derivatives &amp; Clairaut's Theorem)</h2>
+    <p>
+      بما أن المشتقات الجزئية الأولى <span class="formula">\(f_x\)</span> و <span class="formula">\(f_y\)</span> هي بدورها دوال في <span class="formula">\(x\)</span> و <span class="formula">\(y\)</span>، فإنه يمكن اشتقاقها مرة أخرى لنحصل على <strong>المشتقات الجزئية من الرتبة الثانية (<span class="english">Second Partial Derivatives</span>)</strong>، وهي أربع مشتقات محتملة:
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>الرمز المختصر</th>
+            <th>ترميز لايبنتز (<span class="english">Leibniz Notation</span>)</th>
+            <th>التعريف الإجرائي</th>
+            <th>الوصف اللفظي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="formula">\(f_{xx}\)</span></td>
+            <td><span class="formula">\(\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right) = \frac{\partial^2 f}{\partial x^2}\)</span></td>
+            <td>اشتقاق <span class="formula">\(f\)</span> بالنسبة لـ <span class="formula">\(x\)</span>، ثم اشتقاق الناتج مرة ثانية بالنسبة لـ <span class="formula">\(x\)</span>.</td>
+            <td>المشتقة النقية الثانية لـ <span class="formula">\(x\)</span>.</td>
+          </tr>
+          <tr>
+            <td><span class="formula">\(f_{xy}\)</span></td>
+            <td><span class="formula">\(\frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right) = \frac{\partial^2 f}{\partial y \partial x}\)</span></td>
+            <td>اشتقاق <span class="formula">\(f\)</span> أولاً بالنسبة لـ <span class="formula">\(x\)</span>، ثم اشتقاق الناتج ثانياً بالنسبة لـ <span class="formula">\(y\)</span>.</td>
+            <td>المشتقة الجزئية المختلطة (<span class="english">Mixed Partial</span>).</td>
+          </tr>
+          <tr>
+            <td><span class="formula">\(f_{yx}\)</span></td>
+            <td><span class="formula">\(\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y}\right) = \frac{\partial^2 f}{\partial x \partial y}\)</span></td>
+            <td>اشتقاق <span class="formula">\(f\)</span> أولاً بالنسبة لـ <span class="formula">\(y\)</span>، ثم اشتقاق الناتج ثانياً بالنسبة لـ <span class="formula">\(x\)</span>.</td>
+            <td>المشتقة الجزئية المختلطة بالعكس.</td>
+          </tr>
+          <tr>
+            <td><span class="formula">\(f_{yy}\)</span></td>
+            <td><span class="formula">\(\frac{\partial}{\partial y}\left(\frac{\partial f}{\partial y}\right) = \frac{\partial^2 f}{\partial y^2}\)</span></td>
+            <td>اشتقاق <span class="formula">\(f\)</span> بالنسبة لـ <span class="formula">\(y\)</span>، ثم اشتقاق الناتج مرة ثانية بالنسبة لـ <span class="formula">\(y\)</span>.</td>
+            <td>المشتقة النقية الثانية لـ <span class="formula">\(y\)</span>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="result">
+      <span class="box-title">مبرهنة كليروت / شوارتز لتساوي المشتقات المختلطة (Clairaut's Theorem, p. 34)</span>
+      <p>
+        <strong>نص المبرهنة:</strong> إذا كانت الدالة <span class="formula">\(f(x, y)\)</span> معرفة على قرص مفتوح <span class="formula">\(D\)</span> يحتوي النقطة <span class="formula">\((a, b)\)</span>، وكانت المشتقات الجزئية المختلطة <span class="formula">\(f_{xy}\)</span> و <span class="formula">\(f_{yx}\)</span> <strong>متصلة (<span class="english">continuous</span>)</strong> على هذا القرص، فإن:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$f_{xy}(a, b) = f_{yx}(a, b) \quad \iff \quad \frac{\partial^2 f}{\partial y \partial x} = \frac{\partial^2 f}{\partial x \partial y}$$ 
+</div>
+      <p>
+        <strong>الأهمية العملية:</strong> ترتيب الاشتقاق لا يهم طالما أن المشتقات متصلة. يمكنك اشتقاق المتغير الأسهل أولاً!
+      </p>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر للتحقق من مبرهنة كليروت (ص 33)</span>
+      <p><strong>المسألة:</strong> أوجد المشتقات الجزئية الأربع من الرتبة الثانية للدالة: <span class="formula">\(f(x, y) = x^3 + x^2 y^3 - 2y^2\)</span>، وتحقق من مبرهنة كليروت.</p>
+      <p><strong>الحل:</strong></p>
+      <ol>
+        <li>وجِدنا سابقاً المشتقات الأولى: <span class="formula">\(f_x = 3x^2 + 2x y^3\)</span> و <span class="formula">\(f_y = 3x^2 y^2 - 4y\)</span>.</li>
+        <li>نشتق <span class="formula">\(f_x\)</span> بالنسبة لـ <span class="formula">\(x\)</span>: <span class="formula">\(f_{xx} = \frac{\partial}{\partial x}(3x^2 + 2xy^3) = 6x + 2y^3\)</span>.</li>
+        <li>نشتق <span class="formula">\(f_x\)</span> بالنسبة لـ <span class="formula">\(y\)</span>: <span class="formula">\(f_{xy} = \frac{\partial}{\partial y}(3x^2 + 2xy^3) = 0 + 2x(3y^2) = 6x y^2\)</span>.</li>
+        <li>نشتق <span class="formula">\(f_y\)</span> بالنسبة لـ <span class="formula">\(x\)</span>: <span class="formula">\(f_{yx} = \frac{\partial}{\partial x}(3x^2 y^2 - 4y) = (6x)y^2 - 0 = 6x y^2\)</span>.</li>
+        <li>نشتق <span class="formula">\(f_y\)</span> بالنسبة لـ <span class="formula">\(y\)</span>: <span class="formula">\(f_{yy} = \frac{\partial}{\partial y}(3x^2 y^2 - 4y) = 6x^2 y - 4\)</span>.</li>
+      </ol>
+      <p>
+        نلاحظ بوضوح أن: <span class="formula">\(f_{xy} = 6x y^2 = f_{yx}\)</span>، وبذلك تحققت مبرهنة كليروت تماماً.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Section 08: Partial Differential Equations -->
+  <section id="sec-pdes">
+    <h2><span class="number">٠٨</span> [S] المعادلات التفاضلية الجزئية (Partial Differential Equations - PDEs)</h2>
+    <p>
+      تنشأ <strong>المعادلات التفاضلية الجزئية (<span class="english">PDEs</span>)</strong> بصورة طبيعية عند صياغة القوانين الفيزيائية والهندسية التي تحكم الظواهر المعتمدة على المكان والزمان معاً (مثل انتقال الحرارة، انتشار الموجات الصوتية والكهرومغناطيسية، وسريان الموائع).
+    </p>
+
+    <div class="definition">
+      <span class="box-title">معادلة لابلاس والدوال التوافقية (Laplace's Equation, p. 36)</span>
+      <p>
+        تُعرّف <strong>معادلة لابلاس (<span class="english">Laplace's Equation</span>)</strong> في بعدين بأنها:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\nabla^2 u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0 \quad \text{or} \quad u_{xx} + u_{yy} = 0$$ 
+</div>
+      <p>
+        تسمى الحلول التي تحقق معادلة لابلاس <strong>دوالاً توافقية (<span class="english">Harmonic Functions</span>)</strong>، وهي تصف حالات الاتزان المستقر مثل: التوزيع الثابت لدرجات الحرارة، الجهد الكهروستاتيكي، وجهد سريان الموائع عديمة الدوامية.
+      </p>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي ٧ (Example 7, p. 36): إثبات الحل التوافقي</span>
+      <p><strong>نص المسألة:</strong> أثبت أن الدالة <span class="formula">\(u(x, y) = e^x \sin y\)</span> هي حل لمعادلة لابلاس (أي دالة توافقية).</p>
+      <p><strong>خطوات الحل البرهاني التفصيلي:</strong></p>
+      <ol>
+        <li>
+          <strong>حساب المشتقات الجزئية بالنسبة لـ <span class="formula">\(x\)</span>:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$u_x = \frac{\partial}{\partial x}(e^x \sin y) = e^x \sin y$$ 
+</div>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$u_{xx} = \frac{\partial}{\partial x}(e^x \sin y) = e^x \sin y$$ 
+</div>
+        </li>
+        <li>
+          <strong>حساب المشتقات الجزئية بالنسبة لـ <span class="formula">\(y\)</span>:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$u_y = \frac{\partial}{\partial y}(e^x \sin y) = e^x \cos y$$ 
+</div>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$u_{yy} = \frac{\partial}{\partial y}(e^x \cos y) = e^x (-\sin y) = -e^x \sin y$$ 
+</div>
+        </li>
+        <li>
+          <strong>التعويض في معادلة لابلاس:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$u_{xx} + u_{yy} = (e^x \sin y) + (-e^x \sin y) = e^x \sin y - e^x \sin y = 0$$ 
+</div>
+          بما أن الناتج يساوي صفراً تماماً لجميع قيم <span class="formula">\((x, y)\)</span>، إذن الدالة <span class="formula">\(u(x, y)\)</span> تحقق معادلة لابلاس وهي دالة توافقية.
+        </li>
+      </ol>
+    </div>
+
+    <div class="note">
+      <span class="box-title">[AUDIT] ملاحظة تدقيق المصدر على رموز الأسهم المشوشة (ص 36)</span>
+      <p>
+        ورد في حل المثال في الصفحة 36 رموز مشوهة على صورة:
+        <span class="formula">\(u_x = e^x \sin y, \Leftarrow u_y = e^x \cos y\)</span>
+        وكذلك <span class="formula">\(u_{xx} + u_{yy} = e^x \sin y \vec{\leftarrow} - e^x \sin y = 0\)</span>.
+        سبب هذا التشوه هو خطأ في جدول المحارف لرمز الفاصلة المنقوطة وعلامة الجمع في ملف البوستسكربت الأصلي للمصدر، وقد أثبتنا أعلاه الخطوات الصحيحة القياسية.
+      </p>
+    </div>
+
+    <h3>٨.١ معادلة الموجة ومعادلة الحرارة في المصدر</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>اسم المعادلة</th>
+            <th>الصيغة الرياضية القياسية</th>
+            <th>المعنى الفيزيائي للرموز</th>
+            <th>الحل النموذجي في المصدر</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>معادلة الموجة (<span class="english">The Wave Equation</span>)</td>
+            <td><span class="formula">\(\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}\)</span></td>
+            <td><span class="formula">\(u\)</span> إزاحة الموجة، <span class="formula">\(t\)</span> الزمن، <span class="formula">\(c\)</span> سرعة انتشار الموجة.</td>
+            <td><span class="formula">\(u(x, t) = \sin(x - ct)\)</span> (تحقق بالاشتقاق المزدوج).</td>
+          </tr>
+          <tr>
+            <td>معادلة انتشار الحرارة (<span class="english">The Heat Equation</span>)</td>
+            <td><span class="formula">\(\frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2}\)</span></td>
+            <td><span class="formula">\(u\)</span> درجة الحرارة، <span class="formula">\(k\)</span> معامل الانتشارية الحرارية للمادة.</td>
+            <td>تصف تبدد الحرارة مع الزمن واقترابها من الحالة المستقرة.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 09: The Chain Rule -->
+  <section id="sec-chain-rule">
+    <h2><span class="number">٠٩</span> [S] قاعدة السلسلة متعددة المتغيرات (The Chain Rule)</h2>
+    <p>
+      إذا كانت الدالة <span class="formula">\(z = f(x, y)\)</span> تعتمد على <span class="formula">\(x\)</span> و <span class="formula">\(y\)</span>، ولكن كلاً من <span class="formula">\(x\)</span> و <span class="formula">\(y\)</span> يعتمد بدوره على متغير وسيطي خارجي (مثل الزمن <span class="formula">\(t\)</span>)، فكيف نحسب معدل تغير <span class="formula">\(z\)</span> بالنسبة للزمن؟ <strong>قاعدة السلسلة متعددة المتغيرات</strong> تحل هذه المسألة بدقة عبر تجميع مسارات التغير.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">قاعدة السلسلة — الحالة الأولى: متغير وسيطي واحد (Case 1, p. 43)</span>
+      <p>
+        إذا كانت <span class="formula">\(z = f(x, y)\)</span> دالة قابلة للتفاضل، وكان <span class="formula">\(x = g(t)\)</span> و <span class="formula">\(y = h(t)\)</span> دالتين قابلتين للاشتقاق بالنسبة لـ <span class="formula">\(t\)</span>، فإن <span class="formula">\(z\)</span> تكون دالة في متغير واحد هو <span class="formula">\(t\)</span>، وتُعطى مشتقتها الكلية بالقانون:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\frac{dz}{dt} = \frac{\partial z}{\partial x} \frac{dx}{dt} + \frac{\partial z}{\partial y} \frac{dy}{dt}$$ 
+</div>
+      <p>
+        <strong>المعنى الحدسي:</strong> التغير الكلي في <span class="formula">\(z\)</span> هو محصلة رافدين: رافد التغير المار عبر <span class="formula">\(x\)</span>، مضافاً إليه رافد التغير المار عبر <span class="formula">\(y\)</span>.
+      </p>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي ١ (Example 1, p. 43): تطبيق الحالة الأولى</span>
+      <p><strong>نص المسألة:</strong> إذا كانت <span class="formula">\(z = x^2 y + 3x y^4\)</span>، حيث <span class="formula">\(x = \sin 2t\)</span> و <span class="formula">\(y = \cos t\)</span>، أوجد قيمة <span class="formula">\(\frac{dz}{dt}\)</span> عندما <span class="formula">\(t = 0\)</span>.</p>
+      <p><strong>خطوات الحل النموذجية:</strong></p>
+      <ol>
+        <li>
+          <strong>إيجاد المشتقات الجزئية للدالة <span class="formula">\(z\)</span>:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\frac{\partial z}{\partial x} = 2x y + 3y^4, \qquad \frac{\partial z}{\partial y} = x^2 + 12x y^3$$ 
+</div>
+        </li>
+        <li>
+          <strong>إيجاد مشتقات الدوال الوسيطية بالنسبة لـ <span class="formula">\(t\)</span>:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\frac{dx}{dt} = \frac{d}{dt}(\sin 2t) = 2 \cos 2t, \qquad \frac{dy}{dt} = \frac{d}{dt}(\cos t) = -\sin t$$ 
+</div>
+        </li>
+        <li>
+          <strong>التعويض في قاعدة السلسلة:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\frac{dz}{dt} = (2xy + 3y^4)(2\cos 2t) + (x^2 + 12xy^3)(-\sin t)$$ 
+</div>
+        </li>
+        <li>
+          <strong>حساب القيم عند النقطة المستهدفة <span class="formula">\(t = 0\)</span>:</strong><br>
+          عند <span class="formula">\(t = 0\)</span> نجد:
+          <span class="formula">\(x = \sin(0) = 0\)</span> و <span class="formula">\(y = \cos(0) = 1\)</span>.<br>
+          نعوض بهذه الأرقام في المشتقات:
+          <ul>
+            <li><span class="formula">\(\frac{\partial z}{\partial x} = 2(0)(1) + 3(1)^4 = 3\)</span></li>
+            <li><span class="formula">\(\frac{dx}{dt} = 2\cos(0) = 2(1) = 2\)</span></li>
+            <li><span class="formula">\(\frac{\partial z}{\partial y} = 0^2 + 12(0)(1)^3 = 0\)</span></li>
+            <li><span class="formula">\(\frac{dy}{dt} = -\sin(0) = 0\)</span></li>
+          </ul>
+          إذن الناتج النهائي:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\left.\frac{dz}{dt}\right|_{t=0} = (3)(2) + (0)(0) = 6$$ 
+</div>
+        </li>
+      </ol>
+    </div>
+
+    <h3>٩.١ قاعدة السلسلة — الحالة الثانية: متغيران وسيطيان (Case 2, p. 46)</h3>
+    <div class="definition">
+      <span class="box-title">الحالة الثانية ومخططات الشجرة (Tree Diagrams)</span>
+      <p>
+        إذا كانت <span class="formula">\(z = f(x, y)\)</span> حيث <span class="formula">\(x = g(s, t)\)</span> و <span class="formula">\(y = h(s, t)\)</span>، فإن <span class="formula">\(z\)</span> تمتلك مشتقتين جزئيتين بالنسبة لـ <span class="formula">\(s\)</span> و <span class="formula">\(t\)</span>:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\frac{\partial z}{\partial s} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial s}, \qquad \frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$$ 
+</div>
+    </div>
+  </section>
+
+  <!-- Section 10: Implicit Differentiation -->
+  <section id="sec-implicit-diff">
+    <h2><span class="number">١٠</span> [S] الاشتقاق الضمني للدوال والسطوح (Implicit Differentiation)</h2>
+    <p>
+      كثيراً ما تواجهنا معادلات معقدة لا يمكن فيها فصل المتغير <span class="formula">\(y\)</span> صراحة بدلالة <span class="formula">\(x\)</span> (مثل ورقة ديكارت <span class="formula">\(x^3 + y^3 = 6xy\)</span>). بدلاً من الحل الجبري المستحيل، تتيح لنا نظرية الدوال الضمنية وقاعدة السلسلة إيجاد المشتقات مباشرة عبر المشتقات الجزئية.
+    </p>
+
+    <div class="result">
+      <span class="box-title">قانون الاشتقاق الضمني للدوال في بعدين (Equation, p. 50)</span>
+      <p>
+        إذا كانت المعادلة على الصورة <span class="formula">\(F(x, y) = 0\)</span> وتُعرّف <span class="formula">\(y\)</span> كدالة ضمنية قابلة للاشتقاق في <span class="formula">\(x\)</span>، فإن:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\frac{dy}{dx} = -\frac{F_x}{F_y} \quad \left(\text{شرط الاستخدام: } F_y \ne 0\right)$$ 
+</div>
+      <p>
+        <strong>برهان القانون:</strong> نشتق طرفي <span class="formula">\(F(x, y) = 0\)</span> كلياً بالنسبة لـ <span class="formula">\(x\)</span> بقاعدة السلسلة:
+        <span class="formula">\(\frac{\partial F}{\partial x}\frac{dx}{dx} + \frac{\partial F}{\partial y}\frac{dy}{dx} = 0 \implies F_x (1) + F_y \frac{dy}{dx} = 0 \implies \frac{dy}{dx} = -\frac{F_x}{F_y}\)</span>.
+      </p>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي ٨ (Example 8, p. 50): ورقة ديكارت (Folium of Descartes)</span>
+      <p><strong>المسألة:</strong> أوجد <span class="formula">\(y' = \frac{dy}{dx}\)</span> للمنحنى: <span class="formula">\(x^3 + y^3 = 6xy\)</span>.</p>
+      <p><strong>الحل خطوة بخطوة:</strong></p>
+      <ol>
+        <li>نجعل المعادلة صفرية بتعريف الدالة: <span class="formula">\(F(x, y) = x^3 + y^3 - 6xy = 0\)</span>.</li>
+        <li>نحسب المشتقة الجزئية <span class="formula">\(F_x\)</span> (مع اعتبار <span class="formula">\(y\)</span> ثابتاً): <span class="formula">\(F_x = 3x^2 - 6y\)</span>.</li>
+        <li>نحسب المشتقة الجزئية <span class="formula">\(F_y\)</span> (مع اعتبار <span class="formula">\(x\)</span> ثابتاً): <span class="formula">\(F_y = 3y^2 - 6x\)</span>.</li>
+        <li>نطبق قانون الاشتقاق الضمني مباشرة:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\frac{dy}{dx} = -\frac{F_x}{F_y} = -\frac{3x^2 - 6y}{3y^2 - 6x} = -\frac{3(x^2 - 2y)}{3(y^2 - 2x)} = \frac{2y - x^2}{y^2 - 2x}$$ 
+</div>
+        </li>
+      </ol>
+    </div>
+
+    <h3>١٠.١ الاشتقاق الضمني للسطوح في ثلاثة أبعاد (ص 55)</h3>
+    <div class="definition">
+      <span class="box-title">قوانين اشتقاق السطوح الضمنية F(x, y, z) = 0</span>
+      <p>
+        إذا كانت <span class="formula">\(z\)</span> معرفة كدالة ضمنية في متغيرين <span class="formula">\(x\)</span> و <span class="formula">\(y\)</span> بالمعادلة <span class="formula">\(F(x, y, z) = 0\)</span>، وكانت <span class="formula">\(F_z \ne 0\)</span>، فإن:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\frac{\partial z}{\partial x} = -\frac{F_x}{F_z}, \qquad\qquad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z}$$ 
+</div>
+    </div>
+  </section>
+
+  <!-- Section 11: Maximum and Minimum Values -->
+  <section id="sec-max-min">
+    <h2><span class="number">١١</span> [S] القيم العظمى والصغرى ونقاط السرج (Maxima &amp; Minima)</h2>
+    <p>
+      أحد أعظم تطبيقات التفاضل العالي هو إيجاد القيم القصوى للأنظمة الهندسية والفيزيائية متعددة المتغيرات (مثل تعظيم أرباح شركة، أو تصغير الطاقة المبددة، أو إيجاد أكبر حجم لصندوق بأقل كمية كرتون).
+    </p>
+
+    <div class="definition">
+      <span class="box-title">تعريف: النقاط الحرجة ومبرهنة فيرما (Theorem 2, p. 63)</span>
+      <p>
+        تسمى النقطة <span class="formula">\((a, b)\)</span> <strong>نقطة حرجة (<span class="english">Critical Point</span>)</strong> للدالة <span class="formula">\(f(x, y)\)</span> إذا تحقق أحد الشرطين:
+      </p>
+      <ol>
+        <li>انعدام المشتقات الجزئية الأولى معاً: <span class="formula">\(f_x(a, b) = 0 \quad \text{and} \quad f_y(a, b) = 0\)</span>.</li>
+        <li>أو كانت إحدى المشتقات الجزئية غير موجودة عند النقطة.</li>
+      </ol>
+      <p>
+        <strong>مبرهنة فيرما:</strong> إذا كان للدالة <span class="formula">\(f\)</span> قيمة عظمى محلية أو صغرى محلية عند <span class="formula">\((a, b)\)</span>، وكانت المشتقات الجزئية موجودة، فإن <span class="formula">\((a, b)\)</span> يجب أن تكون نقطة حرجة حتماً.
+      </p>
+    </div>
+
+    <h3>١١.١ اختبار المشتقة الثانية ومحدد هسيان (<span class="english">The Second Derivatives Test</span>)</h3>
+    <div class="result">
+      <span class="box-title">قاعدة القرار الرياضي للمميز D (ص 65)</span>
+      <p>
+        لتكن <span class="formula">\((a, b)\)</span> نقطة حرجة للدالة <span class="formula">\(f\)</span> (أي <span class="formula">\(f_x=0, f_y=0\)</span>). نعرّف <strong>المميز (<span class="english">Discriminant D</span>)</strong> بالصيغة:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$D = D(a, b) = f_{xx}(a, b) f_{yy}(a, b) - [f_{xy}(a, b)]^2 = \begin{vmatrix} f_{xx} & f_{xy} \\ f_{yx} & f_{yy} \end{vmatrix}$$ 
+</div>
+      <p>نطبق شروط القرار الأربعة الآتية:</p>
+      <ul>
+        <li><strong>الحالة الأولى:</strong> إذا كان <span class="formula">\(D > 0\)</span> و <span class="formula">\(f_{xx}(a, b) > 0\)</span>، فإن <span class="formula">\(f(a, b)\)</span> هي <strong>نهاية صغرى محلية (<span class="english">Local Minimum</span>)</strong> (السطح مقعر لأعلى كالقاع).</li>
+        <li><strong>الحالة الثانية:</strong> إذا كان <span class="formula">\(D > 0\)</span> و <span class="formula">\(f_{xx}(a, b) < 0\)</span>، فإن <span class="formula">\(f(a, b)\)</span> هي <strong>نهاية عظمى محلية (<span class="english">Local Maximum</span>)</strong> (السطح مقعر لأسفل كالقمة).</li>
+        <li><strong>الحالة الثالثة:</strong> إذا كان <span class="formula">\(D < 0\)</span>، فإن النقطة <span class="formula">\((a, b)\)</span> هي <strong>نقطة سرج (<span class="english">Saddle Point</span>)</strong>؛ حيث يكون السطح مقعراً لأعلى في اتجاه، ومقعراً لأسفل في اتجاه آخر (مثل سرج الحصان).</li>
+        <li><strong>الحالة الرابعة:</strong> إذا كان <span class="formula">\(D = 0\)</span>، فإن الاختبار <strong>غير حاسم (<span class="english">Inconclusive</span>)</strong>، ويجب فحص النقطة بطرق تحليلية أخرى.</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي ١ (Example 1, p. 63): تصنيف النقاط الحرجة وتدقيق السهو</span>
+      <p><strong>نص المسألة المدقق:</strong> أوجد النقاط الحرجة وصنّف القيم القصوى للدالة: <span class="formula">\(f(x, y) = x^2 + y^2 - 2x - 6y + 14\)</span>.</p>
+      <div class="note">
+        <span class="box-title">[AUDIT] توضيح التدقيق</span>
+        <p>ورد في رأس المثال ص 63 كتابة <span class="formula">\(-y\)</span> سهواً، بينما كُتبت المشتقة بالأسفل <span class="formula">\(f_y = 2y - 6\)</span>، والصواب المطابق للاشتقاق هو <span class="formula">\(-6y\)</span> كما أثبتناه هنا.</p>
+      </div>
+      <p><strong>خطوات الحل:</strong></p>
+      <ol>
+        <li>
+          <strong>إيجاد المشتقات الجزئية الأولى ومساواتها بالصفر:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$f_x = 2x - 2 = 0 \implies 2x = 2 \implies x = 1$$ 
+</div>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$f_y = 2y - 6 = 0 \implies 2y = 6 \implies y = 3$$ 
+</div>
+          إذن توجد نقطة حرجة واحدة وحيدة هي: <span class="formula">\((1, 3)\)</span>.
+        </li>
+        <li>
+          <strong>حساب المشتقات الجزئية الثانية:</strong><br>
+          <span class="formula">\(f_{xx} = \frac{\partial}{\partial x}(2x - 2) = 2\)</span><br>
+          <span class="formula">\(f_{yy} = \frac{\partial}{\partial y}(2y - 6) = 2\)</span><br>
+          <span class="formula">\(f_{xy} = \frac{\partial}{\partial y}(2x - 2) = 0\)</span>
+        </li>
+        <li>
+          <strong>حساب المميز <span class="formula">\(D\)</span> عند النقطة <span class="formula">\((1, 3)\)</span>:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$D = f_{xx} f_{yy} - (f_{xy})^2 = (2)(2) - (0)^2 = 4 > 0$$ 
+</div>
+        </li>
+        <li>
+          <strong>تطبيق قاعدة القرار:</strong><br>
+          بما أن <span class="formula">\(D = 4 > 0\)</span> و <span class="formula">\(f_{xx} = 2 > 0\)</span>، فإن الدالة تمتلك <strong>نهاية صغرى محلية</strong> عند <span class="formula">\((1, 3)\)</span>.<br>
+          قيمة النهاية الصغرى هي:
+          <span class="formula">\(f(1, 3) = 1^2 + 3^2 - 2(1) - 6(3) + 14 = 1 + 9 - 2 - 18 + 14 = 4\)</span>.
+        </li>
+      </ol>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال تطبيقي في التحسين: الصندوق المفتوح مفتوح السطح (ص 69)</span>
+      <p>
+        <strong>المسألة:</strong> يُراد صنع صندوق مستطيل الشكل بدون غطاء (<span class="english">Box without a lid</span>) باستخدام كمية ثابتة من الكرتون مساحتها <span class="formula">\(S = 12\text{ m}^2\)</span>. أوجد أبعاد الصندوق <span class="formula">\(x, y, z\)</span> التي تجعل حجمه <span class="formula">\(V\)</span> أكبر ما يمكن.
+      </p>
+      <p><strong>الحل الهندسي:</strong></p>
+      <ol>
+        <li>دالة الهدف (الحجم): <span class="formula">\(V = x y z\)</span>.</li>
+        <li>قيد المساحة الكلية (قاعدة واحدة + أربعة جوانب): <span class="formula">\(S = xy + 2xz + 2yz = 12\)</span>.</li>
+        <li>نعزل <span class="formula">\(z\)</span> من القيد: <span class="formula">\(z(2x + 2y) = 12 - xy \implies z = \frac{12 - xy}{2(x + y)}\)</span>.</li>
+        <li>نعوض بـ <span class="formula">\(z\)</span> في دالة الحجم فتصبح دالة في متغيرين:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$V(x, y) = xy \left[\frac{12 - xy}{2(x + y)}\right] = \frac{12xy - x^2 y^2}{2(x + y)}$$ 
+</div>
+        </li>
+        <li>باشتقاق <span class="formula">\(V\)</span> جزئياً ومساواة <span class="formula">\(V_x = 0\)</span> و <span class="formula">\(V_y = 0\)</span>، نصل إلى النظام المتماثل:
+          <span class="formula">\(y^2(12 - 2xy - x^2) = 0\)</span> و <span class="formula">\(x^2(12 - 2xy - y^2) = 0\)</span>.
+          وبما أن الأبعاد موجبة، فإن <span class="formula">\(x = y\)</span>، وبالتعويض نجد:
+          <span class="formula">\(12 - 3x^2 = 0 \implies x^2 = 4 \implies x = 2\text{ m}, \quad y = 2\text{ m}\)</span>.
+        </li>
+        <li>بالتعويض لإيجاد الارتفاع: <span class="formula">\(z = \frac{12 - (2)(2)}{2(2 + 2)} = \frac{8}{8} = 1\text{ m}\)</span>.</li>
+      </ol>
+      <p><strong>النتيجة الفيزيائية:</strong> أبعاد الصندوق الأكبر حجماً هي: الطول <span class="formula">\(2\text{ m}\)</span>، العرض <span class="formula">\(2\text{ m}\)</span>، والارتفاع <span class="formula">\(1\text{ m}\)</span>، وأقصى حجم هو <span class="formula">\(V = 2 \times 2 \times 1 = 4\text{ m}^3\)</span>.</p>
+    </div>
+  </section>
+
+
+  <!-- Section 12: Double Integrals -->
+  <section id="sec-double-integrals">
+    <h2><span class="number">١٢</span> [S] التكامل الثنائي (Double Integrals)</h2>
+    <p>
+      إذا كان التكامل الأحادي <span class="formula">\(\int_a^b f(x)\,dx\)</span> يحسب المساحة تحت منحنى على خط مستقيم، فإن <strong>التكامل الثنائي (<span class="english">Double Integral</span>)</strong> هو تعميمه المباشر لحساب <strong>الحجم (<span class="english">Volume</span>)</strong> تحت سطح مجسم <span class="formula">\(z = f(x, y)\)</span> فوق منطقة مستوية <span class="formula">\(D\)</span>، وكذلك لحساب كتل الصفائح متغيرة الكثافة، وعزوم القصور الذاتي، والاحتمالات الإحصائية المشتركة.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">تعريف المصدر: التكامل الثنائي بنهايات مجاميع ريمان (Definition, p. 77)</span>
+      <p>
+        لتكن <span class="formula">\(D\)</span> منطقة مغلقة ومحدودة في المستوى <span class="formula">\(xy\)</span>، ولتكن <span class="formula">\(f(x, y)\)</span> دالة متصلة معرفة على <span class="formula">\(D\)</span>.
+        نقسم المنطقة <span class="formula">\(D\)</span> بخطوط عشوائية إلى <span class="formula">\(n\)</span> من المناطق الجزئية مساحاتها <span class="formula">\(\Delta \sigma_k\)</span>، ونختار في كل منطقة نقطة عشوائية <span class="formula">\(P_k(\xi_k, \eta_k)\)</span>، ونكوّن <strong>المجموع التكاملي (<span class="english">Integral Sum</span>)</strong>:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\sigma_n = \sum_{k=1}^n f(P_k) \Delta \sigma_k = \sum_{k=1}^n f(\xi_k, \eta_k) \Delta \sigma_k$$ 
+</div>
+      <p>
+        إذا كانت نهاية هذا المجموع موجودة عندما يؤول مقياس التجزئة الأقصى <span class="formula">\(\max \|\Delta \sigma_k\| \to 0\)</span> (أي <span class="formula">\(n \to \infty\)</span>) مستقلاً عن طريقة تقسيم المنطقة واختيار النقاط، فإن هذه النهاية تسمى <strong>التكامل الثنائي للدالة على المنطقة <span class="formula">\(D\)</span></strong>، وتُكتب:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\iint_D f(x, y)\,dx\,dy = \lim_{\substack{\max\|\Delta\sigma_k\| \to 0 \\ n \to \infty}} \sum_{k=1}^n f(\xi_k, \eta_k) \Delta \sigma_k$$ 
+</div>
+      <p>
+        يُسمى المقدار <span class="formula">\(d\sigma = dA = dx\,dy\)</span> <strong>عنصر المساحة التفاضلي (<span class="english">Differential Area Element</span>)</strong> في الإحداثيات الديكارتية.
+      </p>
+    </div>
+
+    <h3>١٢.١ خواص التكامل الثنائي (ص 78–80)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>الخاصية</th>
+            <th>الصياغة الرياضية</th>
+            <th>المعنى والتطبيق</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>الخطية (<span class="english">Linearity</span>)</td>
+            <td><span class="formula">\(\iint_D [\alpha f(x, y) + \beta g(x, y)]\,dA = \alpha \iint_D f\,dA + \beta \iint_D g\,dA\)</span></td>
+            <td>توزيع التكامل على الجمع وإخراج الثوابت العددية خارجه.</td>
+          </tr>
+          <tr>
+            <td>التجميعية على المناطق (<span class="english">Additivity</span>)</td>
+            <td>إذا كانت <span class="formula">\(D = D_1 \cup D_2\)</span> مع <span class="formula">\(D_1 \cap D_2 = \emptyset\)</span> (أو منحنى حدّي عديم المساحة):<br><span class="formula">\(\iint_D f\,dA = \iint_{D_1} f\,dA + \iint_{D_2} f\,dA\)</span></td>
+            <td>تقسيم منطقة التكامل المعقدة إلى جزأين أسهل في الحساب وجمع الناتجين.</td>
+          </tr>
+          <tr>
+            <td>مبرهنة القيمة المتوسطة (<span class="english">Mean-Value Theorem</span>)</td>
+            <td>توجد نقطة <span class="formula">\((x_0, y_0) \in D\)</span> بحيث:<br><span class="formula">\(\iint_D f(x, y)\,dA = f(x_0, y_0) \cdot \text{Area}(D)\)</span></td>
+            <td>حجم المجسم يساوي مساحة قاعدته مضروبة في متوسط ارتفاع السطح.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>١٢.٢ حساب التكاملات المتكررة ومبرهنة فوبيني (<span class="english">Fubini's Theorem</span>)</h3>
+    <p>
+      عملياً، لا نحسب التكامل الثنائي بالتعريف اللانهائي، بل نحوله إلى <strong>تكاملين أحاديين متتاليين (<span class="english">Iterated Integrals</span>)</strong> باستخدام مبرهنة فوبيني:
+    </p>
+
+    <div class="result">
+      <span class="box-title">مبرهنة فوبيني على المستطيل R = [a, b] × [c, d] (ص 81)</span>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\iint_R f(x, y)\,dA = \int_a^b \left[ \int_c^d f(x, y)\,dy \right] dx = \int_c^d \left[ \int_a^b f(x, y)\,dx \right] dy$$ 
+</div>
+      <p>
+        <strong>قاعدة الفصل:</strong> إذا أمكن فصل الدالة إلى حاصل ضرب <span class="formula">\(f(x, y) = g(x) h(y)\)</span> على مستطيل، فإن التكامل الثنائي يتحول إلى حاصل ضرب تكاملين مستقلين:
+        <span class="formula">\(\iint_R g(x) h(y)\,dA = \left(\int_a^b g(x)\,dx\right) \left(\int_c^d h(y)\,dy\right)\)</span>.
+      </p>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي (ص 82): حساب كتلة ومساحة الصفيحة المستطيلة وتدقيق الوحدة</span>
+      <p>
+        <strong>المسألة:</strong> مستطيل حدوده <span class="formula">\(1 \le x \le 5\)</span> و <span class="formula">\(2 \le y \le 7\)</span>.
+        (a) احسب مساحة المستطيل.
+        (b) إذا كانت الكثافة السطحية للمستطيل متغيرة وفق الدالة <span class="formula">\(\sigma(x, y) = x^2 y\)</span>، فاحسب الكتلة الكلية <span class="formula">\(m\)</span> للمستطيل.
+      </p>
+      <p><strong>خطوات الحل:</strong></p>
+      <ol>
+        <li>
+          <strong>(a) حساب المساحة (<span class="english">Area</span>):</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$A = \int_1^5 dx \int_2^7 dy = [x]_1^5 \cdot [y]_2^7 = (5 - 1)(7 - 2) = 4 \times 5 = 20\text{ m}^2$$ 
+</div>
+        </li>
+        <li>
+          <strong>(b) حساب الكتلة الكلية (<span class="english">Total Mass m</span>):</strong><br>
+          عنصر الكتلة هو الكثافة مضروبة في عنصر المساحة: <span class="formula">\(dm = \sigma\,dA = x^2 y\,dy\,dx\)</span>.
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$m = \int_1^5 \int_2^7 x^2 y\,dy\,dx = \left( \int_1^5 x^2\,dx \right) \left( \int_2^7 y\,dy \right)$$ 
+</div>
+          نحسب التكامل الداخلي والخارجي:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\int_2^7 y\,dy = \left[ \frac{y^2}{2} \right]_2^7 = \frac{7^2 - 2^2}{2} = \frac{49 - 4}{2} = \frac{45}{2}$$ 
+</div>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\int_1^5 x^2\,dx = \left[ \frac{x^3}{3} \right]_1^5 = \frac{5^3 - 1^3}{3} = \frac{125 - 1}{3} = \frac{124}{3}$$ 
+</div>
+          نضرب الناتجين مع الاختصار:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$m = \left(\frac{45}{2}\right) \times \left(\frac{124}{3}\right) = \left(\frac{45}{3}\right) \times \left(\frac{124}{2}\right) = 15 \times 62 = 930\text{ kg}$$ 
+</div>
+        </li>
+      </ol>
+      <div class="note">
+        <span class="box-title">[AUDIT] ملاحظة تدقيقية للمصدر</span>
+        <p>ورد في ختام ص 82 عبارة: <span class="english">"Therefore the area of the rectangle is m = 930 kg"</span>، والصواب اللفظي هو: <span class="english">"Therefore the mass of the rectangle is m = 930 kg"</span>، لأن 930 هي الكتلة الناتجة عن الكثافة بوحدة الكيلوجرام، في حين أن مساحة المستطيل الهندسية هي <span class="formula">\(20\text{ m}^2\)</span>.</p>
+      </div>
+    </div>
+
+    <h3>١٢.٣ التكامل الثنائي في الإحداثيات القطبية (<span class="english">Polar Coordinates</span>)</h3>
+    <p>
+      عندما تكون منطقة التكامل دائرية أو تحتوي على المقدار <span class="formula">\(x^2 + y^2\)</span>، يكون التكامل الكارتيزي معقداً جداً. نتحول حينئذٍ إلى الإحداثيات القطبية:
+      <span class="formula">\(x = r \cos\theta, \quad y = r \sin\theta, \quad x^2 + y^2 = r^2\)</span>.
+    </p>
+
+    <div class="warning">
+      <span class="box-title">تحذير حاسم: لا تنسَ عامل جاكوبي r في عنصر المساحة!</span>
+      <p>
+        عنصر المساحة القطبي ليس <span class="formula">\(dr\,d\theta\)</span>، بل هو:
+        <span class="formula">\(dA = r\,dr\,d\theta\)</span>.
+        السبب الهندسي هو أن رقعة المساحة القطبية تتسع كلما ابتعدنا عن المركز بنصف القطر <span class="formula">\(r\)</span> (قوس زاوي طوله <span class="formula">\(r\,d\theta\)</span> مضروب في سمك <span class="formula">\(dr\)</span>).
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\iint_D f(x, y)\,dx\,dy = \iint_R f(r\cos\theta, r\sin\theta)\,r\,dr\,d\theta$$ 
+</div>
+    </div>
+  </section>
+
+  <!-- Section 13: Triple Integrals -->
+  <section id="sec-triple-integrals">
+    <h2><span class="number">١٣</span> [S] التكامل الثلاثي (Triple Integrals)</h2>
+    <p>
+      التكامل الثلاثي <span class="formula">\(\iiint_V F(x, y, z)\,dV\)</span> يُعرّف على منطقة ثلاثية الأبعاد (حجم <span class="formula">\(V\)</span> محاط بسطح مغلق <span class="formula">\(S\)</span>) من خلال تجزئة الحجم إلى حجوم متناهية في الصغر <span class="formula">\(\Delta v_k\)</span> وجمع ريمان:
+    </p>
+    <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\iiint_V F(x, y, z)\,dx\,dy\,dz = \lim_{\substack{\max\|\Delta v_k\| \to 0 \\ n \to \infty}} \sum_{k=1}^n F(\xi_k, \eta_k, \zeta_k) \Delta v_k$$ 
+</div>
+    <p>
+      إذا كانت <span class="formula">\(F(x, y, z) = 1\)</span>، فإن التكامل الثلاثي يعطي مباشرة <strong>حجم المجسم <span class="formula">\(V\)</span></strong>:
+      <span class="formula">\(\text{Volume}(V) = \iiint_V 1\,dV\)</span>.
+    </p>
+
+    <h3>١٣.١ أنظمة الإحداثيات في الفضاء الثلاثي وعناصر الحجم</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>النظام الإحداثي</th>
+            <th>معادلات التحويل</th>
+            <th>عامل جاكوبي (<span class="english">Jacobian J</span>)</th>
+            <th>عنصر الحجم التفاضلي (<span class="english">dV</span>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>الديكارتي (<span class="english">Cartesian</span>)</td>
+            <td><span class="formula">\(x, y, z\)</span></td>
+            <td><span class="formula">\(1\)</span></td>
+            <td><span class="formula">\(dV = dz\,dy\,dx\)</span></td>
+          </tr>
+          <tr>
+            <td>الأسطواني (<span class="english">Cylindrical</span>)</td>
+            <td><span class="formula">\(x = r\cos\theta, \quad y = r\sin\theta, \quad z = z\)</span></td>
+            <td><span class="formula">\(J = r\)</span></td>
+            <td><span class="formula">\(dV = r\,dz\,dr\,d\theta\)</span></td>
+          </tr>
+          <tr>
+            <td>الكروي (<span class="english">Spherical</span>)</td>
+            <td><span class="formula">\(x = r\sin\theta\cos\phi, \quad y = r\sin\theta\sin\phi, \quad z = r\cos\theta\)</span></td>
+            <td><span class="formula">\(J = r^2 \sin\theta\)</span></td>
+            <td><span class="formula">\(dV = r^2 \sin\theta\,dr\,d\theta\,d\phi\)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي ٦ (Example 6, p. 97): إثبات قانون حجم الكرة كاملاً</span>
+      <p><strong>نص المسألة:</strong> أثبت باستخدام التكامل الثلاثي في الإحداثيات الكروية أن حجم الكرة التي نصف قطرها <span class="formula">\(a\)</span> يُعطى بالقانون: <span class="formula">\(V = \frac{4}{3}\pi a^3\)</span>.</p>
+      <p><strong>البرهان المفصل خطوة بخطوة:</strong></p>
+      <ol>
+        <li>
+          <strong>تحديد حدود المتغيرات الكروية للكرة الكاملة:</strong><br>
+          <ul>
+            <li>نصف القطر <span class="formula">\(r\)</span> يمتد من المركز إلى السطح: من <span class="formula">\(r = 0\)</span> إلى <span class="formula">\(r = a\)</span>.</li>
+            <li>الزاوية القطبية <span class="formula">\(\theta\)</span> (من القطب الشمالي إلى الجنوبي): من <span class="formula">\(\theta = 0\)</span> إلى <span class="formula">\(\theta = \pi\)</span>.</li>
+            <li>الزاوية السمتية <span class="formula">\(\phi\)</span> (دورة كاملة حول محور <span class="formula">\(z\)</span>): من <span class="formula">\(\phi = 0\)</span> إلى <span class="formula">\(\phi = 2\pi\)</span>.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>كتابة التكامل الثلاثي:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$V = \iiint_V 1\,dV = \int_0^{2\pi} \int_0^\pi \int_0^a r^2 \sin\theta\,dr\,d\theta\,d\phi$$ 
+</div>
+        </li>
+        <li>
+          <strong>فصل التكاملات المستقلة وحساب كل تكامل على حدة:</strong><br>
+          بما أن الحدود كلها أعداد ثابتة والدالة مفصولة:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$V = \left( \int_0^a r^2\,dr \right) \left( \int_0^\pi \sin\theta\,d\theta \right) \left( \int_0^{2\pi} 1\,d\phi \right)$$ 
+</div>
+          نحسب قيمة كل حد بدقة:
+          <ul>
+            <li><span class="formula">\(\int_0^a r^2\,dr = \left[ \frac{r^3}{3} \right]_0^a = \frac{a^3}{3} - 0 = \frac{a^3}{3}\)</span></li>
+            <li><span class="formula">\(\int_0^\pi \sin\theta\,d\theta = \left[ -\cos\theta \right]_0^\pi = (-\cos\pi) - (-\cos 0) = -(-1) - (-1) = 1 + 1 = 2\)</span></li>
+            <li><span class="formula">\(\int_0^{2\pi} 1\,d\phi = [\phi]_0^{2\pi} = 2\pi - 0 = 2\pi\)</span></li>
+          </ul>
+        </li>
+        <li>
+          <strong>ضرب النواتج الثلاثة:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:10px 0;">
+ $$V = \left(\frac{a^3}{3}\right) \times (2) \times (2\pi) = \frac{4}{3} \pi a^3$$ 
+</div>
+          وهو المطلوب إثباته تماماً كصيغة هندسية مطلقة ومطابقة للمصدر ص 97.
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- Section 14: Line Integrals -->
+  <section id="sec-line-integrals">
+    <h2><span class="number">١٤</span> [S] تكاملات المسار / الخطية (Line Integrals)</h2>
+    <p>
+      في الفيزياء، عندما يتحرك جسيم على طول مسار منحنٍ <span class="formula">\(C\)</span> تحت تأثير قوة متغيرة <span class="formula">\(\mathbf{a}\)</span>، فإن حساب الشغل المبذول لا يمكن أن يتم بقوانين الضرب العادية، بل يتطلب تجزئة المسار إلى عناصر إزاحة متناهية في الصغر <span class="formula">\(d\mathbf{r}\)</span> وتجميعها. هذا هو <strong>تكامل المسار (<span class="english">Line Integral</span>)</strong>.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">الأنواع الثلاثة لتكامل المسار في المصدر (Equations 1, p. 108)</span>
+      <p>
+        إذا كان <span class="formula">\(C\)</span> مساراً يربط النقطة <span class="formula">\(A\)</span> بالنقطة <span class="formula">\(B\)</span>، و <span class="formula">\(\phi\)</span> حقلاً عددياً، و <span class="formula">\(\mathbf{a}\)</span> حقلاً متجهياً، فإن المصدر يعرّف ثلاثة أشكال أساسية:
+      </p>
+      <div class="code-wrap">
+        <div class="code-label">Three Types of Line Integrals</div>
+        <pre><code class="formula">$$\text{(1) Scalar Field Integral:} \quad \int_C \phi\,d\mathbf{r} \quad (\text{ينتج متجهاً})
+\text{(2) Tangential / Work Integral:} \quad \int_C \mathbf{a} \cdot d\mathbf{r} \quad (\text{الشغل أو الدوران، ينتج عدداً قياسياً})
+\text{(3) Cross-Product Integral:} \quad \int_C \mathbf{a} \times d\mathbf{r} \quad (\text{ينتج متجهاً})$$</code></pre>
+      </div>
+      <p>
+        <strong>التعريف الدقيق للشغل:</strong> نقسم المسار <span class="formula">\(C\)</span> إلى <span class="formula">\(N\)</span> من عناصر الخط الصغيرة <span class="formula">\(\Delta \mathbf{r}_p\)</span>، ونختار نقطة <span class="formula">\((x_p, y_p, z_p)\)</span> على كل عنصر:
+        <span class="formula">\(\int_C \mathbf{a} \cdot d\mathbf{r} = \lim_{N \to \infty} \sum_{p=1}^N \mathbf{a}(x_p, y_p, z_p) \cdot \Delta \mathbf{r}_p\)</span> حيث يؤول طول كل عنصر <span class="formula">\(|\Delta \mathbf{r}_p| \to 0\)</span>.
+      </p>
+    </div>
+
+    <h3>١٤.١ طريقة الحساب العملية باستخدام المعادلات الوسيطية</h3>
+    <p>
+      لحساب تكامل المسار عملياً، نمثّل المنحنى <span class="formula">\(C\)</span> وسيطياً بدلالة المتغير <span class="formula">\(t\)</span>:
+      <span class="formula">\(\mathbf{r}(t) = x(t)\mathbf{i} + y(t)\mathbf{j} + z(t)\mathbf{k} \implies d\mathbf{r} = \left(\frac{dx}{dt}\mathbf{i} + \frac{dy}{dt}\mathbf{j} + \frac{dz}{dt}\mathbf{k}\right) dt\)</span>.
+      فيتحول التكامل إلى تكامل أحادي عادي بالنسبة لـ <span class="formula">\(t\)</span>:
+    </p>
+    <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\int_C \mathbf{a} \cdot d\mathbf{r} = \int_{t_1}^{t_2} \left[ a_x(t) \frac{dx}{dt} + a_y(t) \frac{dy}{dt} + a_z(t) \frac{dz}{dt} \right] dt$$ 
+</div>
+
+    <h3>١٤.٢ طوبولوجيا المناطق وترابطها (<span class="english">Connectivity of Regions, p. 115</span>)</h3>
+    <p>
+      أفرد المصدر في الصفحة 115 شرحاً خاصاً لطوبولوجيا المناطق، وهو شرط محوري لسلامة مبرهنات غرين وستوكس واستقلال المسار:
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>نوع المنطقة</th>
+            <th>التعريف الهندسي والرياضي</th>
+            <th>السلوك الطوبولوجي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>منطقة بسيطة الترابط (<span class="english">Simply Connected</span>)</td>
+            <td>منطقة لا تحتوي على أي «فجوات» أو «ثقوب».</td>
+            <td>أي منحنى مغلق داخل المنطقة يمكن تضييقه باستمرار (<span class="english">shrunk to a point</span>) حتى ينكمش إلى نقطة دون أن يغادر حدود المنطقة.</td>
+          </tr>
+          <tr>
+            <td>منطقة مضاعفة الترابط (<span class="english">Doubly Connected</span>)</td>
+            <td>منطقة تحتوي على فجوة واحدة (ثقب واحد مثل الحلقة الدائرية).</td>
+            <td>توجد منحنيات مغلقة تحيط بالثقب لا يمكن تضييقها لنقطة دون الخروج من المنطقة.</td>
+          </tr>
+          <tr>
+            <td>منطقة متعددة الترابط (<span class="english">n-fold Connected</span>)</td>
+            <td>منطقة تحتوي على <span class="formula">\(n - 1\)</span> من الثقوب المعزولة.</td>
+            <td>تتطلب عمل «قواطع» (<span class="english">cuts</span>) لتحويلها إلى منطقة بسيطة الترابط لتطبيق نظريات التكامل.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 15: Surface Integrals -->
+  <section id="sec-surface-integrals">
+    <h2><span class="number">١٥</span> [S] تكاملات السطح وتدفق الحقول (Surface Integrals &amp; Flux)</h2>
+    <p>
+      التكامل السطحي هو تعميم للتكامل الثنائي على السطوح المنحنية في الفضاء ثلاثي الأبعاد <span class="formula">\(S \subset \mathbb{R}^3\)</span>. وأهم تطبيق فيزيائي له هو حساب <strong>التدفق (<span class="english">Flux</span>)</strong>، أي كمية المائع أو خطوط المجال الكهرومغناطيسي التي تعبر السطح في وحدة الزمن.
+    </p>
+
+    <div class="definition">
+      <span class="box-title">عنصر المساحة المتجه وتكامل التدفق (Equations, p. 126)</span>
+      <p>
+        يُعرّف <strong>عنصر المساحة المتجه (<span class="english">Vector Area Element</span>)</strong> للسطح <span class="formula">\(S\)</span> بالصيغة:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$d\mathbf{S} = \hat{\mathbf{n}}\,dS$$ 
+</div>
+      <p>
+        حيث <span class="formula">\(\hat{\mathbf{n}}\)</span> هو <strong>متجه الوحدة العمودي على السطح (<span class="english">Unit Normal Vector</span>)</strong> عند النقطة، و <span class="formula">\(dS\)</span> هو عنصر المساحة القياسي.
+      </p>
+      <p>
+        ويُعرّف <strong>تكامل التدفق (<span class="english">Flux Integral</span>)</strong> للحقل المتجهي <span class="formula">\(\mathbf{a}\)</span> عبر السطح <span class="formula">\(S\)</span> بأنه:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\Phi = \int_S \mathbf{a} \cdot d\mathbf{S} = \int_S (\mathbf{a} \cdot \hat{\mathbf{n}})\,dS$$ 
+</div>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي (Example, p. 130): حساب التدفق عبر نصف كرة</span>
+      <p><strong>نص المسألة:</strong> احسب التكامل السطحي <span class="formula">\(I = \int_S \mathbf{a} \cdot d\mathbf{S}\)</span>، حيث الحقل المتجهي هو <span class="formula">\(\mathbf{a} = x\mathbf{i}\)</span>، والسطح <span class="formula">\(S\)</span> هو سطح نصف الكرة العلوي: <span class="formula">\(x^2 + y^2 + z^2 = a^2\)</span> مع <span class="formula">\(z \ge 0\)</span>.</p>
+      <p><strong>الحل النموذجي كما ورد في المصدر ص 130:</strong></p>
+      <ol>
+        <li>
+          <strong>تحديد متجه الوحدة العمودي وعنصر المساحة:</strong><br>
+          على سطح الكرة ذات نصف القطر <span class="formula">\(a\)</span>، المتجه العمودي الخارجي عند أي نقطة يقع في اتجاه نصف القطر:
+          <span class="formula">\(\hat{\mathbf{n}} = \hat{\mathbf{r}} = \frac{x\mathbf{i} + y\mathbf{j} + z\mathbf{k}}{a}\)</span>.<br>
+          عنصر المساحة الكروي هو: <span class="formula">\(dS = a^2 \sin\theta\,d\theta\,d\phi\)</span>، وعليه فإن:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$d\mathbf{S} = a^2 \sin\theta\,d\theta\,d\phi\,\hat{\mathbf{r}}$$ 
+</div>
+        </li>
+        <li>
+          <strong>حساب حاصل الضرب القياسي <span class="formula">\(\mathbf{a} \cdot d\mathbf{S}\)</span>:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\mathbf{a} \cdot \hat{\mathbf{r}} = (x\mathbf{i}) \cdot \left(\frac{x\mathbf{i} + y\mathbf{j} + z\mathbf{k}}{a}\right) = \frac{x^2}{a}$$ 
+</div>
+          بالتحويل إلى الإحداثيات الكروية حيث <span class="formula">\(x = a \sin\theta \cos\phi\)</span>:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\mathbf{a} \cdot d\mathbf{S} = \left(\frac{a^2 \sin^2\theta \cos^2\phi}{a}\right) (a^2 \sin\theta\,d\theta\,d\phi) = a^3 \sin^3\theta \cos^2\phi\,d\theta\,d\phi$$ 
+</div>
+        </li>
+        <li>
+          <strong>تحديد الحدود وإجراء التكامل لنصف الكرة العلوي:</strong><br>
+          حدود الزوايا لنصف الكرة: <span class="formula">\(0 \le \phi \le 2\pi\)</span> و <span class="formula">\(0 \le \theta \le \pi/2\)</span> (لأن <span class="formula">\(z \ge 0\)</span>).
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$I = a^3 \left( \int_0^{2\pi} \cos^2\phi\,d\phi \right) \left( \int_0^{\pi/2} \sin^3\theta\,d\theta \right)$$ 
+</div>
+          نحسب كل تكامل:
+          <ul>
+            <li><span class="formula">\(\int_0^{2\pi} \cos^2\phi\,d\phi = \int_0^{2\pi} \frac{1 + \cos 2\phi}{2}\,d\phi = \left[ \frac{\phi}{2} + \frac{\sin 2\phi}{4} \right]_0^{2\pi} = \pi\)</span></li>
+            <li><span class="formula">\(\int_0^{\pi/2} \sin^3\theta\,d\theta = \int_0^{\pi/2} (1 - \cos^2\theta)\sin\theta\,d\theta = \left[ -\cos\theta + \frac{\cos^3\theta}{3} \right]_0^{\pi/2} = 0 - \left(-1 + \frac{1}{3}\right) = \frac{2}{3}\)</span></li>
+          </ul>
+        </li>
+        <li>
+          <strong>الناتج النهائي للتدفق:</strong><br>
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$I = a^3 (\pi) \left(\frac{2}{3}\right) = \frac{2}{3} \pi a^3$$ 
+</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 16: Volume Integrals and Surface Relationship -->
+  <section id="sec-volume-integrals">
+    <h2><span class="number">١٦</span> [S] التكاملات الحجمية وعلاقة الحجم بالسطح (Volume Integrals)</h2>
+    <p>
+      يغطي المصدر في الصفحة 136 التكامل الحجمي لحقل عددي <span class="formula">\(\int_V \phi\,dV\)</span> وحقل متجهي <span class="formula">\(\int_V \mathbf{a}\,dV\)</span>. ومن أبدع النتائج الهندسية المشروحة إمكانية <strong>حساب حجم أي مجسم ثلاثي الأبعاد بالكامل عبر تكامل سطحي يحيط به</strong>.
+    </p>
+
+    <div class="result">
+      <span class="box-title">قانون إيجاد الحجم كتدفق سطحي وبرهانه (p. 136)</span>
+      <p>
+        إذا كان <span class="formula">\(V\)</span> حجماً ثلاثي الأبعاد محاطاً بسطح مغلق <span class="formula">\(S\)</span>، و <span class="formula">\(\mathbf{r} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\)</span> هو متجه الموضع المقاس من نقطة أصل داخل المجسم، فإن حجم المجسم يُعطى بالقانون:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\text{Volume}(V) = \frac{1}{3} \oint_S \mathbf{r} \cdot d\mathbf{S}$$ 
+</div>
+      <p>
+        <strong>البرهان من مبرهنة التباعد (ص 140):</strong>
+        نحسب تباعد متجه الموضع:
+        <span class="formula">\(\nabla \cdot \mathbf{r} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 1 + 1 + 1 = 3\)</span>.
+        بتطبيق مبرهنة التباعد:
+        <span class="formula">\(\oint_S \mathbf{r} \cdot d\mathbf{S} = \int_V (\nabla \cdot \mathbf{r})\,dV = \int_V 3\,dV = 3 \int_V dV = 3V \implies V = \frac{1}{3}\oint_S \mathbf{r} \cdot d\mathbf{S}\)</span>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 17: The Great Vector Integral Theorems -->
+  <section id="sec-vector-theorems">
+    <h2><span class="number">١٧</span> [S] المبرهنات التكاملية الكبرى في حساب المتجهات (Vector Integral Theorems)</h2>
+    <p>
+      تمثل المبرهنات الثلاث التالية (غاوس، غرين، وستوكس) ذروة سنام علم التفاضل العالي والتحليل الشعاعي، والأساس الرياضي لمعادلات ماكسويل في الكهرومغناطيسية وميكانيكا الموائع.
+    </p>
+
+    <h3>١٧.١ مبرهنة التباعد لغاوس وبرهانها الفيزيائي (<span class="english">Gauss's Divergence Theorem</span>)</h3>
+    <div class="definition">
+      <span class="box-title">نص مبرهنة التباعد (Equation 11, p. 140)</span>
+      <p>
+        إذا كان <span class="formula">\(V\)</span> حجماً مغلقاً محاطاً بسطح أملس مجزأ <span class="formula">\(S\)</span>، وكان <span class="formula">\(\mathbf{a}\)</span> حقلاً متجهياً متصلاً وله مشتقات جزئية أولى متصلة في <span class="formula">\(V\)</span>، فإن:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\int_V (\nabla \cdot \mathbf{a})\,dV = \oint_S \mathbf{a} \cdot d\mathbf{S}$$ 
+</div>
+      <p>
+        <strong>فكرة البرهان في المصدر (ص 140):</strong> نقسم الحجم الكبير <span class="formula">\(V\)</span> إلى عدد ضخم من الحجوم الصخرية الصغيرة <span class="formula">\(V_i\)</span> المحاطة بالسطوح <span class="formula">\(S_i\)</span>. لكل حجم صغير، يرتبط التباعد بالتدفق عبر <span class="formula">\((\nabla \cdot \mathbf{a}) V_i \approx \oint_{S_i} \mathbf{a} \cdot d\mathbf{S}\)</span>. عند جمع هذه المساهمات، فإن التدفقات عبر السطوح الداخلية المشتركة بين حجوم متجاورة <strong>تتلاشى تماماً (<span class="english">cancel out</span>)</strong> لأن متجه الوحدة العمودي للسطح المشترك يظهر في اتجاهين متعاكسين بإشارتين مختلفتين لكل حجم مجاور. وتبقى فقط المساهمات القادمة من السطح الخارجي الحدّي <span class="formula">\(S\)</span>، وبأخذ النهاية نحصل على المساواة التامة.
+      </p>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] التطبيق الفيزيائي في المصدر (ص 145): استنتاج معادلة الاستمرارية للموائع</span>
+      <p>
+        <strong>المسألة:</strong> لمائع قابل للانضغاط (<span class="english">compressible fluid</span>) كثافته متغيرة مع المكان والزمان <span class="formula">\(\rho(\mathbf{r}, t)\)</span> وحقل سرعته <span class="formula">\(\mathbf{v}(\mathbf{r}, t)\)</span>، وحيث لا تُخلق مادة ولا تفنى، أثبت معادلة الاستمرارية الشهيرة:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0$$ 
+</div>
+      <p><strong>البرهان الفيزيائي المنقول عن المصدر:</strong></p>
+      <ol>
+        <li>كتلة المائع داخل أي حجم ثابت <span class="formula">\(V\)</span> هي: <span class="formula">\(M = \int_V \rho\,dV\)</span>.</li>
+        <li>وفق مبدأ حفظ الكتلة، معدل الزيادة أو النقصان في الكتلة <span class="formula">\(\frac{dM}{dt}\)</span> يجب أن يعادل صافي تدفق المائع الداخل أو الخارج عبر السطح المحيط <span class="formula">\(S\)</span>:
+          <span class="formula">\(\frac{dM}{dt} = -\oint_S \rho \mathbf{v} \cdot d\mathbf{S}\)</span>.
+        </li>
+        <li>بالتعويض بقيمة الكتلة:
+          <span class="formula">\(\frac{d}{dt} \int_V \rho\,dV + \oint_S \rho \mathbf{v} \cdot d\mathbf{S} = 0\)</span>.
+        </li>
+        <li>بتطبيق مبرهنة التباعد لغاوس على التكامل السطحي:
+          <span class="formula">\(\oint_S (\rho \mathbf{v}) \cdot d\mathbf{S} = \int_V \nabla \cdot (\rho \mathbf{v})\,dV\)</span>.
+        </li>
+        <li>بإدخال المشتقة الزمنية داخل التكامل الحجمي ودمج الحدين:
+          <span class="formula">\(\int_V \left[ \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) \right] dV = 0\)</span>.
+        </li>
+        <li>بما أن الحجم <span class="formula">\(V\)</span> اختياري تماماً، فإن المقدار داخل التكامل يجب أن ينعدم في كل نقطة:
+          <span class="formula">\(\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0\)</span>.
+        </li>
+      </ol>
+    </div>
+
+    <h3>١٧.٢ مبرهنة غرين في المستوى (<span class="english">Green's Theorem in the Plane, p. 146</span>)</h3>
+    <div class="result">
+      <span class="box-title">مبرهنة غرين: الجسر بين تكامل المسار والتكامل الثنائي</span>
+      <p>
+        إذا كانت <span class="formula">\(D\)</span> منطقة مستوية محاطة بمنحنى مغلق أملس مجزأ <span class="formula">\(C\)</span> موجه في الاتجاه الموجب (عكس اتجاه عقارب الساعة)، وكانت <span class="formula">\(P(x, y)\)</span> و <span class="formula">\(Q(x, y)\)</span> دالتين لهما مشتقات جزئية متصلة على <span class="formula">\(D\)</span>، فإن:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\oint_C (P\,dx + Q\,dy) = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA$$ 
+</div>
+    </div>
+
+    <h3>١٧.٣ مبرهنة ستوكس (<span class="english">Stokes' Theorem, p. 148</span>)</h3>
+    <div class="definition">
+      <span class="box-title">نص مبرهنة ستوكس (Equation 16, p. 148)</span>
+      <p>
+        تربط مبرهنة ستوكس بين <strong>دوران الحقل المتجهي (<span class="english">\nabla \times \mathbf{a}</span>) عبر سطح مفتوح <span class="formula">\(S\)</span></strong>، وبين <strong>دوران الحقل على طول منحنى الحدود المغلق <span class="formula">\(C\)</span> المحيط بالسطح</strong> باتباع قاعدة اليد اليمنى:
+      </p>
+      <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\int_S (\nabla \times \mathbf{a}) \cdot d\mathbf{S} = \oint_C \mathbf{a} \cdot d\mathbf{r}$$ 
+</div>
+    </div>
+
+    <div class="example">
+      <span class="box-title">[S] مثال المصدر الأصلي للتحقق من مبرهنة ستوكس (ص 148)</span>
+      <p>
+        <strong>المسألة:</strong> ليكن الحقل المتجهي <span class="formula">\(\mathbf{a} = y\mathbf{i} - x\mathbf{j} + z\mathbf{k}\)</span>. تحقق من صحة مبرهنة ستوكس على سطح نصف الكرة <span class="formula">\(x^2 + y^2 + z^2 = a^2\)</span> حيث <span class="formula">\(z \ge 0\)</span>.
+      </p>
+      <p><strong>خطوات التحقق بحساب طرفي المبرهنة كما في المصدر:</strong></p>
+      <ol>
+        <li>
+          <strong>الطرف الأيسر: التكامل السطحي لدوران الحقل <span class="formula">\(\int_S (\nabla \times \mathbf{a}) \cdot d\mathbf{S}\)</span>:</strong><br>
+          نحسب الدوران بالمحدد:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\nabla \times \mathbf{a} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ y & -x & z \end{vmatrix} = \mathbf{i}(0 - 0) - \mathbf{j}(0 - 0) + \mathbf{k}\left(\frac{\partial(-x)}{\partial x} - \frac{\partial y}{\partial y}\right) = \mathbf{k}(-1 - 1) = -2\mathbf{k}$$ 
+</div>
+          عنصر المساحة المتجه هو: <span class="formula">\(d\mathbf{S} = a^2 \sin\theta\,d\theta\,d\phi\,\hat{\mathbf{r}}\)</span>.<br>
+          نضرب قياسياً مع الدوران مع ملاحظة أن <span class="formula">\(\hat{\mathbf{r}} \cdot \mathbf{k} = \frac{z}{a} = \cos\theta\)</span>:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$(\nabla \times \mathbf{a}) \cdot d\mathbf{S} = (-2\mathbf{k}) \cdot (a^2 \sin\theta\,d\theta\,d\phi\,\hat{\mathbf{r}}) = -2a^2 \sin\theta \left(\frac{z}{a}\right) d\theta\,d\phi = -2a^2 \sin\theta \cos\theta\,d\theta\,d\phi$$ 
+</div>
+          نكامل على نصف الكرة (<span class="formula">\(0 \le \phi \le 2\pi\)</span> و <span class="formula">\(0 \le \theta \le \pi/2\)</span>):
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\int_S (\nabla \times \mathbf{a}) \cdot d\mathbf{S} = -2a^2 \left(\int_0^{2\pi} d\phi\right) \left(\int_0^{\pi/2} \sin\theta \cos\theta\,d\theta\right)$$ 
+</div>
+          <span class="formula">\(\int_0^{2\pi} d\phi = 2\pi\)</span>، و <span class="formula">\(\int_0^{\pi/2} \sin\theta\cos\theta\,d\theta = \left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2} = \frac{1}{2}\)</span>.<br>
+          إذن الطرف الأيسر يساوي:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\int_S (\nabla \times \mathbf{a}) \cdot d\mathbf{S} = -2a^2 (2\pi) \left(\frac{1}{2}\right) = -2\pi a^2$$ 
+</div>
+        </li>
+        <li>
+          <strong>الطرف الأيمن: تكامل المسار حول منحنى الحدود <span class="formula">\(\oint_C \mathbf{a} \cdot d\mathbf{r}\)</span>:</strong><br>
+          حدود نصف الكرة عند المستوى <span class="formula">\(z = 0\)</span> هي دائرة في المستوى <span class="formula">\(xy\)</span> معادلتها <span class="formula">\(x^2 + y^2 = a^2\)</span>.<br>
+          نمثلها وسيطياً بالزاوية <span class="formula">\(\phi\)</span> من <span class="formula">\(0\)</span> إلى <span class="formula">\(2\pi\)</span>:
+          <span class="formula">\(x = a \cos\phi \implies dx = -a \sin\phi\,d\phi\)</span>،
+          <span class="formula">\(y = a \sin\phi \implies dy = a \cos\phi\,d\phi\)</span>،
+          و <span class="formula">\(z = 0 \implies dz = 0\)</span>.<br>
+          نعوض في تكامل المسار:
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\oint_C \mathbf{a} \cdot d\mathbf{r} = \oint_C (y\,dx - x\,dy + z\,dz) = \int_0^{2\pi} \left[ (a\sin\phi)(-a\sin\phi) - (a\cos\phi)(a\cos\phi) \right] d\phi$$ 
+</div>
+          <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$= \int_0^{2\pi} -a^2 (\sin^2\phi + \cos^2\phi)\,d\phi = -a^2 \int_0^{2\pi} 1\,d\phi = -2\pi a^2$$ 
+</div>
+        </li>
+        <li>
+          <strong>الخلاصة:</strong> الطرف الأيسر (<span class="formula">\(-2\pi a^2\)</span>) يطابق تماماً الطرف الأيمن (<span class="formula">\(-2\pi a^2\)</span>)، وبذلك تحققت مبرهنة ستوكس بصورة برهانية قاطعة.
+        </li>
+      </ol>
+    </div>
+
+    <h3>١٧.٤ برهان مبرهنة التكامل الشعاعي المقترنة (ص 150–151)</h3>
+    <div class="example">
+      <span class="box-title">[S] برهان المصدر للعلاقة: \int_S d\mathbf{S} \times \nabla\phi = \oint_C \phi\,d\mathbf{r}</span>
+      <p><strong>البرهان كما ساقه المصدر ص 150:</strong></p>
+      <ol>
+        <li>نطبق مبرهنة ستوكس الأساسية: <span class="formula">\(\int_S [\nabla \times \mathbf{a}] \cdot d\mathbf{S} = \oint_C \mathbf{a} \cdot d\mathbf{r}\)</span>.</li>
+        <li>نضع الحقل <span class="formula">\(\mathbf{a} = \phi \mathbf{c}\)</span>، حيث <span class="formula">\(\mathbf{c}\)</span> متجه ثابت اعتباطي (<span class="english">arbitrary constant vector</span>).</li>
+        <li>نحسب دوران الحقل بتطبيق متطابقة تفاضل المتجهات:
+          <span class="formula">\(\nabla \times (\phi \mathbf{c}) = \nabla\phi \times \mathbf{c} + \phi(\nabla \times \mathbf{c})\)</span>.
+          وبما أن <span class="formula">\(\mathbf{c}\)</span> ثابت، فإن <span class="formula">\(\nabla \times \mathbf{c} = \mathbf{0}\)</span>، إذن:
+          <span class="formula">\(\nabla \times (\phi \mathbf{c}) = \nabla\phi \times \mathbf{c}\)</span>.
+        </li>
+        <li>نعوض في الطرف الأيسر لمبرهنة ستوكس:
+          <span class="formula">\(\int_S [\nabla \times (\phi\mathbf{c})] \cdot d\mathbf{S} = \int_S (\nabla\phi \times \mathbf{c}) \cdot d\mathbf{S}\)</span>.
+          باستخدام الخاصية الدورية للضرب الثلاثي القياسي <span class="formula">\((\mathbf{u} \times \mathbf{v}) \cdot \mathbf{w} = \mathbf{v} \cdot (\mathbf{w} \times \mathbf{u})\)</span>:
+          <span class="formula">\((\nabla\phi \times \mathbf{c}) \cdot d\mathbf{S} = \mathbf{c} \cdot (d\mathbf{S} \times \nabla\phi)\)</span>.
+        </li>
+        <li>في الطرف الأيمن لمبرهنة ستوكس:
+          <span class="formula">\(\oint_C (\phi \mathbf{c}) \cdot d\mathbf{r} = \mathbf{c} \cdot \oint_C \phi\,d\mathbf{r}\)</span>.
+        </li>
+        <li>بمساواة الطرفين وإخراج المتجه الثابت <span class="formula">\(\mathbf{c}\)</span> خارج التكاملين:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\mathbf{c} \cdot \left[ \int_S d\mathbf{S} \times \nabla\phi \right] = \mathbf{c} \cdot \left[ \oint_C \phi\,d\mathbf{r} \right]$$ 
+</div>
+        </li>
+        <li>بما أن المتجه <span class="formula">\(\mathbf{c}\)</span> هو متجه ثابت اعتباطي تماماً، فإن هذه المساواة لا تصح إلا إذا تساوى المتجهان داخل القوسين:
+          <div class="formula" style="direction:ltr; text-align:center; margin:8px 0;">
+ $$\int_S d\mathbf{S} \times \nabla\phi = \oint_C \phi\,d\mathbf{r}$$ 
+</div>
+          وهو المطلوب إثباته بنص وخطوات المصدر ص 151.
+        </li>
+      </ol>
+    </div>
+    <h3>١٧.٥ صندوق مقارنة استراتيجي بين المبرهنات التكاملية الثلاث (<span class="english">[E] Comparison</span>)</h3>
+    <div class="comparison">
+      <span class="box-title">[E] مقارنة: غرين ↔ ستوكس ↔ غاوس — أيّها أستخدم؟ (تنظيم استنتاجي للمادة، لا نص حرفي من المصدر)</span>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>وجه المقارنة</th>
+              <th>مبرهنة غرين (<span class="english">Green</span>, ص 146)</th>
+              <th>مبرهنة ستوكس (<span class="english">Stokes</span>, ص 148)</th>
+              <th>مبرهنة التباعد (<span class="english">Gauss</span>, ص 140)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>الكيان الهندسي</strong></td>
+              <td>منحنى مغلق <span class="formula">\(C\)</span> في المستوى يحصر منطقة <span class="formula">\(D\)</span>.</td>
+              <td>منحنى مغلق <span class="formula">\(C\)</span> في الفضاء يحدّ سطوحاً <span class="formula">\(S\)</span>.</td>
+              <td>سطح مغلق <span class="formula">\(S\)</span> يحصراً حجماً <span class="formula">\(V\)</span>.</td>
+            </tr>
+            <tr>
+              <td><strong>الصيغة</strong></td>
+              <td><span class="formula">\(\oint_C P\,dx + Q\,dy = \iint_D (Q_x - P_y)\,dA\)</span></td>
+              <td><span class="formula">\(\oint_C \mathbf{a}\cdot d\mathbf{r} = \int_S (\nabla \times \mathbf{a})\cdot d\mathbf{S}\)</span></td>
+              <td><span class="formula">\(\oint_S \mathbf{a}\cdot d\mathbf{S} = \int_V (\nabla \cdot \mathbf{a})\,dV\)</span></td>
+            </tr>
+            <tr>
+              <td><strong>المؤثر المتجهي</strong></td>
+              <td>الدوران القياسي ثنائي البعد <span class="formula">\(Q_x - P_y\)</span>.</td>
+              <td>التكبير <span class="formula">\(\nabla \times \mathbf{a}\)</span>.</td>
+              <td>التباعد <span class="formula">\(\nabla \cdot \mathbf{a}\)</span>.</td>
+            </tr>
+            <tr>
+              <td><strong>الاتفاقية الاتجاهية</strong></td>
+              <td>الاتجاه الموجب هو عكس عقارب الساعة.</td>
+              <td>قاعدة اليد اليمنى بين اتجاه <span class="formula">\(C\)</span> ومتجه <span class="formula">\(d\mathbf{S}\)</span>.</td>
+              <td>متجه العنصر السطحي يشير إلى الخارج دائماً.</td>
+            </tr>
+            <tr>
+              <td><strong>تطبيق إضافي وارد في المرجع</strong></td>
+              <td>حساب المساحة بصيغة <span class="formula">\(A = \tfrac{1}{2} \oint_C x\,dy - y\,dx\)</span>.</td>
+              <td>إثبات استقلال تكامل الدوران عن اختيار السطح ما دامت الحافة واحدة.</td>
+              <td>استنتاج معادلة الاستمرارية للموائع (ص 145).</td>
+            </tr>
+            <tr>
+              <td><strong>شرط الانطباق ومتى تفشل</strong></td>
+              <td>يلزم انغلاق <span class="formula">\(C\)</span> واتصال المشتقات الجزئية داخل <span class="formula">\(D\)</span>.</td>
+              <td>يلزم سطح مجزّأ ناعم وحقل قابل للاشتقاق عليه.</td>
+              <td>يلزم أن يكون السطح <strong>مغلقاً</strong>؛ وإن كان مفتوحاً يُغلق بسطح تعويضي ثم يُطرح تكامله.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>خلاصة قرار سريع [I]:</strong> «تدفق عبر سطح مغلق» ← غاوس؛ «دوران حول حافة مغلقة» ← ستوكس؛ «كلُّ شيء في المستوى <span class="formula">\(xy\)</span>» ← غرين، وهي الحالة الخاصة من ستوكس حين يكون متجه العنصر السطحي عمودياً ثابتاً.</p>
+    </div>
+
+  </section>
+
+
+  <!-- Section 18: Practice Question Bank with Collapsible Solutions -->
+  <section id="sec-practice-bank">
+    <h2><span class="number">١٨</span> [E] بنك المسائل والتمارين المتدرجة (مع الحلول النموذجية المخفية)</h2>
+    <p>
+      الرياضيات لا تُتعلم بالمشاهدة السلبية. حاول حل كل مسألة بنفسك على ورقة خارجية قبل النقر على زر «عرض الحل النموذجي والتحقق».
+    </p>
+
+    <!-- Problem 1 -->
+    <details>
+      <summary>مسألة ١: تعيين مجال دالة تحتوي جذراً ولوغاريتم معاً (مستوى متوسط)</summary>
+      <div class="inside">
+        <p><strong>المسألة:</strong> أوجد المجال <span class="formula">\(D\)</span> للدالة: <span class="formula">\(f(x, y) = \frac{\sqrt{9 - x^2 - y^2}}{\ln(y - x)}\)</span>.</p>
+        <p><strong>الحل النموذجي خطوة بخطوة:</strong></p>
+        <ol>
+          <li><strong>شرط البسط (جذر تربيعي):</strong> ما تحت الجذر يجب ألا يكون سالباً:
+            <span class="formula">\(9 - x^2 - y^2 \ge 0 \implies x^2 + y^2 \le 9\)</span>.
+            هندسياً: يمثل هذا القرص الدائري المغلق الذي مركزه <span class="formula">\((0, 0)\)</span> ونصف قطره <span class="formula">\(3\)</span>.
+          </li>
+          <li><strong>شرط اللوغاريتم:</strong> داخل اللوغاريتم يجب أن يكون موجباً تماماً:
+            <span class="formula">\(y - x > 0 \implies y > x\)</span>.
+            هندسياً: نصف المستوى الواقع فوق المستقيم <span class="formula">\(y = x\)</span>.
+          </li>
+          <li><strong>شرط عدم انعدام المقام:</strong> المقام ينعدم إذا كان <span class="formula">\(\ln(y - x) = 0\)</span>، أي عندما <span class="formula">\(y - x = 1 \implies y = x + 1\)</span>. إذن يجب استبعاد نقاط المستقيم <span class="formula">\(y = x + 1\)</span>.</li>
+        </ol>
+        <p><strong>الناتج النهائي للمجال:</strong></p>
+        <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$D = \{(x, y) \in \mathbb{R}^2 \mid x^2 + y^2 \le 9, \quad y > x, \quad y \ne x + 1\}$$ 
+</div>
+      </div>
+    </details>
+
+    <!-- Problem 2 -->
+    <details>
+      <summary>مسألة ٢: إثبات عدم وجود نهاية بدرجات غير متماثلة (مستوى متقدم)</summary>
+      <div class="inside">
+        <p><strong>المسألة:</strong> أثبت أن النهاية <span class="formula">\(\lim_{(x, y) \to (0, 0)} \frac{x^3 y}{x^6 + y^2}\)</span> غير موجودة.</p>
+        <p><strong>الحل:</strong></p>
+        <ol>
+          <li>نختبر المستقيمات <span class="formula">\(y = mx\)</span>:
+            <span class="formula">\(\lim_{x \to 0} \frac{x^3 (mx)}{x^6 + m^2 x^2} = \lim_{x \to 0} \frac{m x^4}{x^2 (x^4 + m^2)} = \lim_{x \to 0} \frac{m x^2}{x^4 + m^2} = 0\)</span> (تعطي 0 لجميع المستقيمات).
+          </li>
+          <li>نوازن درجات المقام: نلاحظ أن <span class="formula">\(x^6 = (x^3)^2\)</span>، لذا نختار مسار المنحنى التكعيبي <span class="formula">\(y = x^3\)</span>:
+            <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\lim_{x \to 0} \frac{x^3 (x^3)}{x^6 + (x^3)^2} = \lim_{x \to 0} \frac{x^6}{2x^6} = \frac{1}{2}$$ 
+</div>
+          </li>
+          <li>بما أن <span class="formula">\(0 \ne 1/2\)</span>، إذن النهاية <strong>غير موجودة حتماً</strong>.</li>
+        </ol>
+      </div>
+    </details>
+
+    <!-- Problem 3 -->
+    <details>
+      <summary>مسألة ٣: عكس ترتيب التكامل الثنائي (مستوى متقدم)</summary>
+      <div class="inside">
+        <p><strong>المسألة:</strong> احسب قيمة التكامل: <span class="formula">\(I = \int_0^1 \int_y^1 e^{x^2}\,dx\,dy\)</span>.</p>
+        <p><strong>الحل:</strong></p>
+        <ol>
+          <li>الدالة <span class="formula">\(e^{x^2}\)</span> لا تمتلك دالة أصلية أولية بالنسبة لـ <span class="formula">\(x\)</span>، لذا يستحيل البدء بالتكامل الداخلي كما هو مكتوب.</li>
+          <li>نرسم منطقة التكامل: الحدود هي <span class="formula">\(y \le x \le 1\)</span> مع <span class="formula">\(0 \le y \le 1\)</span>. هذه المنطقة هي مثلث رؤوسه <span class="formula">\((0,0), (1,0), (1,1)\)</span>.</li>
+          <li>نعكس الترتيب لنجعل <span class="formula">\(y\)</span> داخلياً: يمتد <span class="formula">\(x\)</span> من <span class="formula">\(0\)</span> إلى <span class="formula">\(1\)</span>، ولكل <span class="formula">\(x\)</span> يمتد <span class="formula">\(y\)</span> من <span class="formula">\(0\)</span> إلى <span class="formula">\(x\)</span>:
+            <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$I = \int_0^1 \left[ \int_0^x e^{x^2}\,dy \right] dx = \int_0^1 e^{x^2} [y]_0^x\,dx = \int_0^1 x e^{x^2}\,dx$$ 
+</div>
+          </li>
+          <li>الآن أصبح التكامل سهلاً جداً بوجود المشتقة <span class="formula">\(x\)</span>:
+            <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$I = \left[ \frac{1}{2} e^{x^2} \right]_0^1 = \frac{1}{2}(e^1 - e^0) = \frac{e - 1}{2}$$ 
+</div>
+          </li>
+        </ol>
+      </div>
+    </details>
+
+    <!-- Problem 4 -->
+    <details>
+      <summary>مسألة ٤: حساب شغل حقل متجهي على مسار قطعي مكافئ (مستوى متوسط)</summary>
+      <div class="inside">
+        <p><strong>المسألة:</strong> احسب الشغل <span class="formula">\(W = \int_C \mathbf{a} \cdot d\mathbf{r}\)</span> حيث <span class="formula">\(\mathbf{a} = (x + y)\mathbf{i} + (y - x)\mathbf{j}\)</span> على طول المنحنى <span class="formula">\(y = x^2\)</span> من النقطة <span class="formula">\((0, 0)\)</span> إلى النقطة <span class="formula">\((1, 1)\)</span>.</p>
+        <p><strong>الحل:</strong></p>
+        <ol>
+          <li>نمثل المسار وسيطياً بوضع <span class="formula">\(x = t\)</span>، فيكون <span class="formula">\(y = t^2\)</span> حيث <span class="formula">\(0 \le t \le 1\)</span>.</li>
+          <li>التفاضلات: <span class="formula">\(dx = dt\)</span> و <span class="formula">\(dy = 2t\,dt\)</span>.</li>
+          <li>نعوض في تكامل الشغل:
+            <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$W = \int_C (x + y)\,dx + (y - x)\,dy = \int_0^1 \left[ (t + t^2)(1) + (t^2 - t)(2t) \right] dt$$ 
+</div>
+            <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$= \int_0^1 (t + t^2 + 2t^3 - 2t^2)\,dt = \int_0^1 (2t^3 - t^2 + t)\,dt$$ 
+</div>
+          </li>
+          <li>نكامل حدود متعددة الحدود:
+            <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$W = \left[ \frac{2t^4}{4} - \frac{t^3}{3} + \frac{t^2}{2} \right]_0^1 = \left( \frac{1}{2} - \frac{1}{3} + \frac{1}{2} \right) = 1 - \frac{1}{3} = \frac{2}{3}$$ 
+</div>
+          </li>
+        </ol>
+      </div>
+    </details>
+    <!-- Problem 5 -->
+    <details>
+      <summary>مسألة ٥: تصنيف النقاط الحرجة بمميز هسيان (<span class="english">Hessian discriminant</span>) — مستوى متوسط <span class="english">[E]</span></summary>
+      <div class="inside">
+        <p><strong>المسألة:</strong> صنّف جميع النقاط الحرجة للدالة <span class="formula">\(f(x, y) = x^3 - 3xy + y^3\)</span>.</p>
+        <p><strong>الحل النموذجي خطوة بخطوة:</strong></p>
+        <ol>
+          <li><strong>المشتقتان الجزئيتان الأولى:</strong>
+            <span class="formula">\(f_x = 3x^2 - 3y\)</span> و <span class="formula">\(f_y = 3y^2 - 3x\)</span>.
+          </li>
+          <li><strong>حل النظام <span class="formula">\(f_x = 0,\ f_y = 0\)</span>:</strong>
+            من المعادلة الأولى <span class="formula">\(y = x^2\)</span>؛ بالتعويض في الثانية:
+            <span class="formula">\(3(x^2)^2 - 3x = 0 \implies 3x^4 - 3x = 0 \implies 3x(x^3 - 1) = 0\)</span>،
+            ومن ثم <span class="formula">\(x = 0\)</span> أو <span class="formula">\(x = 1\)</span>. النقاط الحرجة هي <span class="formula">\((0, 0)\)</span> و <span class="formula">\((1, 1)\)</span>.
+          </li>
+          <li><strong>المشتقات الثانية والمميز:</strong>
+            <span class="formula">\(f_{xx} = 6x\)</span>، <span class="formula">\(f_{yy} = 6y\)</span>، <span class="formula">\(f_{xy} = -3\)</span>،
+            والمميز هو <span class="formula">\(D = f_{xx} f_{yy} - (f_{xy})^2 = 36xy - 9\)</span>.
+          </li>
+          <li><strong>التصنيف عند <span class="formula">\((0,0)\)</span>:</strong>
+            <span class="formula">\(D(0,0) = -9 < 0\)</span> ⟹ <strong>نقطة سرج</strong> بحكم قاعدة القرار في القسم ١١.
+          </li>
+          <li><strong>التصنيف عند <span class="formula">\((1,1)\)</span>:</strong>
+            <span class="formula">\(D(1,1) = 27 > 0\)</span> مع <span class="formula">\(f_{xx}(1,1) = 6 > 0\)</span> ⟹ <strong>قيمة صغرى محلية</strong> مقدارها <span class="formula">\(f(1,1) = 1 - 3 + 1 = -1\)</span>.
+          </li>
+        </ol>
+        <div class="recall">
+          <span class="box-title">استرجاع نشط [E]: بيّن على ورقة خارجية لماذا لا يكفي تحقق <span class="formula">\(f_x = f_y = 0\)</span> لاستنتاج وجود قيمة قصوى، بالدراسة على المسار <span class="formula">\(y = x\)</span> قرب <span class="formula">\((0,0)\)</span>.</span>
+          <p><strong>معيار إثبات الإتقان:</strong> إنتاج المميز <span class="formula">\(D = 36xy - 9\)</span> وتصنيف النقطتين خلال دقيقتين دون الرجوع إلى القسم ١١.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- Problem 6 -->
+    <details>
+      <summary>مسألة ٦: التحقق الصريح من مبرهنة غرين على دائرة الوحدة (<span class="english">Green's Theorem check</span>) — مستوى متقدم <span class="english">[E]</span></summary>
+      <div class="inside">
+        <p><strong>المسألة:</strong> تحقّق من مبرهنة غرين للحقل <span class="formula">\(\mathbf{a} = (-y,\ x)\)</span> على المنحنى <span class="formula">\(C: x^2 + y^2 = 1\)</span> باتجاه عكس عقارب الساعة.</p>
+        <p><strong>الحل النموذجي خطوة بخطوة:</strong></p>
+        <ol>
+          <li><strong>الطرف الأول (تكامل المسار):</strong> نوسّط الدائرة بـ <span class="formula">\(x = \cos t,\ y = \sin t,\ 0 \le t \le 2\pi\)</span> فيكون
+            <span class="formula">\(dx = -\sin t\,dt\)</span> و <span class="formula">\(dy = \cos t\,dt\)</span>:
+            <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\oint_C (-y)\,dx + x\,dy = \int_0^{2\pi} \left[ (-\sin t)(-\sin t) + (\cos t)(\cos t) \right] dt = \int_0^{2\pi} dt = 2\pi$$ 
+</div>
+          </li>
+          <li><strong>الطرف الثاني (التكامل الثنائي):</strong> هنا <span class="formula">\(P = -y\)</span> و <span class="formula">\(Q = x\)</span> إذن
+            <span class="formula">\(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 1 - (-1) = 2\)</span>، ومنه
+            <div class="formula" style="direction:ltr; text-align:center; margin:6px 0;">
+ $$\iint_D 2\,dA = 2 \cdot A(D) = 2\pi$$ 
+</div>
+          </li>
+          <li><strong>الخلاصة:</strong> الطرفان متساويان (<span class="formula">\(2\pi = 2\pi\)</span>)، وهو تحقق صريح من صيغة المصدر (ص 146).</li>
+        </ol>
+        <div class="warning">
+          <span class="box-title">خطأ شائع يجب تجنبه:</span>
+          <p>حساب <span class="formula">\(Q_x - P_y\)</span> بوصله <span class="formula">\(1 - 1 = 0\)</span> بنسيان الإشارة السالبة في <span class="formula">\(P = -y\)</span>. قاعدة التصحيح: اكتب <span class="formula">\(P\)</span> و<span class="formula">\(Q\)</span> في عمودين منفصلين قبل الاشتقاق الجزئي.</p>
+        </div>
+      </div>
+    </details>
+
+  </section>
+
+  <!-- Section 19: Learning System and Error Diagnostic Framework -->
+  <section id="sec-learning-system">
+    <h2><span class="number">١٩</span> المنظومة التعليمية وسجل تشخيص الأخطاء والمراجعة المتباعدة</h2>
+    <p>
+      بناءً على دليل منظومة التعلم الشامل المضمن في الماستر برومبت، إليك الأدوات التطبيقية لضمان تثبيت محتوى المقرر في ذاكرتك الدائمة واستعدادك الكامل للامتحانات الجامعية:
+    </p>
+
+    <h3>١٩.١ جدول المراجعة المتباعدة المقترح (<span class="english">Spaced Repetition Schedule</span>)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>الجلسة</th>
+            <th>التوقيت الزمني</th>
+            <th>النشاط التعليمي المستهدف</th>
+            <th>معيار التحقق من الإتقان</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>اليوم الأول</td>
+            <td>فور انتهاء دراسة الوحدة</td>
+            <td>شرح المفهوم الذاتي دون رموز بأسلوب فاينمان، ثم حل مثال تدريبي.</td>
+            <td>القدرة على كتابة التعريف الرياضي الدقيق دون فتح الصفحة.</td>
+          </tr>
+          <tr>
+            <td>اليوم الثاني</td>
+            <td>بعد 24 ساعة</td>
+            <td>استرجاع نشط (<span class="english">Active Recall</span>) لبطاقات القوانين وجدول الرموز.</td>
+            <td>حل مسألة اختبار المسارات أو الاشتقاق الضمني في أقل من 5 دقائق.</td>
+          </tr>
+          <tr>
+            <td>اليوم الرابع</td>
+            <td>بعد 3 أيام</td>
+            <td>تدريب متداخل (<span class="english">Interleaving</span>): حل مسألة تكامل ثنائي ومسألة قيم قصوى معاً.</td>
+            <td>اختيار أداة الحل الصحيحة فور قراءة نص المسألة دون تردد.</td>
+          </tr>
+          <tr>
+            <td>اليوم العاشر</td>
+            <td>بعد أسبوعين</td>
+            <td>مراجعة تراكمية للمبرهنات المتجهية الثلاث (غاوس، غرين، وستوكس).</td>
+            <td>إعادة كتابة إثبات حجم الكرة أو معادلة الاستمرارية للموائع كاملة.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>١٩.٢ دفتر تشخيص الأخطاء الشائعة (<span class="english">Error Diagnostic Log</span>)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>الخطأ الشائع</th>
+            <th>نوع الخطأ</th>
+            <th>السبب الجذري</th>
+            <th>قاعدة التصحيح ومنع التكرار</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>نسيان ضرب عنصر المساحة في <span class="formula">\(r\)</span> عند التحويل للقطبي.</td>
+            <td>سهو إجرائي</td>
+            <td>الاعتياد على استبدال <span class="formula">\(dx dy\)</span> مباشرة بـ <span class="formula">\(dr d\theta\)</span>.</td>
+            <td>اكتب دائماً <span class="formula">\(dA = r\,dr\,d\theta\)</span> في خطوة مستقلة قبل وضع إشارات التكامل.</td>
+          </tr>
+          <tr>
+            <td>الاعتقاد بأن مسارات <span class="formula">\(y = mx\)</span> كافية لإثبات وجود النهاية.</td>
+            <td>خلل مفاهيمي</td>
+            <td>عدم إدراك وجود مسارات منحنية كالقطوع المكافئة التي توازن درجات البسط والمقام.</td>
+            <td>تذكر: المسارات تُستخدم فقط <strong>لإثبات عدم وجود النهاية</strong>، أما إثبات وجودها فيتطلب الإحداثيات القطبية أو الحصر أو تعريف <span class="formula">\(\varepsilon-\delta\)</span>.</td>
+          </tr>
+          <tr>
+            <td>نسيان الإشارة السالبة في قانون الاشتقاق الضمني <span class="formula">\(dy/dx = -F_x/F_y\)</span>.</td>
+            <td>خطأ جبري</td>
+            <td>القفز السريع دون كتابة معادلة السلسلة الصفرية <span class="formula">\(F_x + F_y y' = 0\)</span>.</td>
+            <td>اشتق الطرفين بـ <span class="formula">\(x\)</span> لتشاهد بعينك نقل الحد للطرف الآخر مسبوقاً بإشارة سالب.</td>
+          </tr>
+          <tr>
+            <td>الخلط بين المشتقة العادية <span class="formula">\(d\)</span> والمشتقة الجزئية <span class="formula">\(\partial\)</span>.</td>
+            <td>خلل رمزي</td>
+            <td>معاملة الدالة متعددة المتغيرات وكأنها دالة أحادية.</td>
+            <td>الرمز <span class="formula">\(\partial\)</span> يعني بالضرورة وجود متغيرات أخرى ثابتة أثناء التغير.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 20: Glossary, Metadata and Closing -->
+  <section id="sec-glossary">
+    <h2><span class="number">٢٠</span> قاموس المصطلحات والرموز المعيارية وبيانات المرجع</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>المصطلح بالعربية</th>
+            <th>English Term</th>
+            <th>الرمز الرياضي القياسي</th>
+            <th>موضع الشرح في المرجع</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>دالة في متغيرين</td>
+            <td>Function of two variables</td>
+            <td><span class="formula">\(z = f(x, y)\)</span></td>
+            <td>القسم ٠٤ (ص ٤)</td>
+          </tr>
+          <tr>
+            <td>منحنيات المستوى / خطوط الكنتور</td>
+            <td>Level Curves / Contours</td>
+            <td><span class="formula">\(f(x, y) = k\)</span></td>
+            <td>القسم ٠٤ (ص ٨)</td>
+          </tr>
+          <tr>
+            <td>اختبار المسارين لعدم وجود النهاية</td>
+            <td>Two-Path Test</td>
+            <td><span class="formula">\(\lim_{x \to 0} f(x, mx)\)</span></td>
+            <td>القسم ٠٥ (ص ١٢)</td>
+          </tr>
+          <tr>
+            <td>المشتقة الجزئية الأولى</td>
+            <td>Partial Derivative</td>
+            <td><span class="formula">\(\frac{\partial f}{\partial x}, \quad f_x\)</span></td>
+            <td>القسم ٠٦ (ص ٢٧)</td>
+          </tr>
+          <tr>
+            <td>مبرهنة كليروت (تساوي المشتقات المختلطة)</td>
+            <td>Clairaut's Theorem</td>
+            <td><span class="formula">\(f_{xy} = f_{yx}\)</span></td>
+            <td>القسم ٠٧ (ص ٣٤)</td>
+          </tr>
+          <tr>
+            <td>معادلة لابلاس (الدوال التوافقية)</td>
+            <td>Laplace's Equation</td>
+            <td><span class="formula">\(\nabla^2 u = u_{xx} + u_{yy} = 0\)</span></td>
+            <td>القسم ٠٨ (ص ٣٦)</td>
+          </tr>
+          <tr>
+            <td>قاعدة السلسلة متعددة المتغيرات</td>
+            <td>Chain Rule</td>
+            <td><span class="formula">\(\frac{dz}{dt} = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}\)</span></td>
+            <td>القسم ٠٩ (ص ٤٣)</td>
+          </tr>
+          <tr>
+            <td>الاشتقاق الضمني</td>
+            <td>Implicit Differentiation</td>
+            <td><span class="formula">\(\frac{dy}{dx} = -\frac{F_x}{F_y}\)</span></td>
+            <td>القسم ١٠ (ص ٥٠)</td>
+          </tr>
+          <tr>
+            <td>مميز اختبار المشتقة الثانية</td>
+            <td>Discriminant / Hessian</td>
+            <td><span class="formula">\(D = f_{xx} f_{yy} - (f_{xy})^2\)</span></td>
+            <td>القسم ١١ (ص ٦٥)</td>
+          </tr>
+          <tr>
+            <td>نقطة السرج</td>
+            <td>Saddle Point</td>
+            <td><span class="formula">\(D < 0\)</span></td>
+            <td>القسم ١١ (ص ٦٥)</td>
+          </tr>
+          <tr>
+            <td>التكامل الثنائي</td>
+            <td>Double Integral</td>
+            <td><span class="formula">\(\iint_D f(x, y)\,dA\)</span></td>
+            <td>القسم ١٢ (ص ٧٧)</td>
+          </tr>
+          <tr>
+            <td>مبرهنة فوبيني</td>
+            <td>Fubini's Theorem</td>
+            <td><span class="formula">\(\int_a^b \int_c^d f\,dy\,dx\)</span></td>
+            <td>القسم ١٢ (ص ٨١)</td>
+          </tr>
+          <tr>
+            <td>مصفوفة جاكوبي (عامل التحويل)</td>
+            <td>Jacobian Determinant</td>
+            <td><span class="formula">\(J(r, \theta) = r, \quad J(r,\theta,\phi) = r^2\sin\theta\)</span></td>
+            <td>القسم ١٢ &amp; ١٣ (ص ٨٨، ٩٧)</td>
+          </tr>
+          <tr>
+            <td>تكامل المسار</td>
+            <td>Line Integral</td>
+            <td><span class="formula">\(\int_C \mathbf{a} \cdot d\mathbf{r}\)</span></td>
+            <td>القسم ١٤ (ص ١٠٨)</td>
+          </tr>
+          <tr>
+            <td>تكامل التدفق السطحي</td>
+            <td>Surface Flux Integral</td>
+            <td><span class="formula">\(\int_S \mathbf{a} \cdot d\mathbf{S}\)</span></td>
+            <td>القسم ١٥ (ص ١٢٦)</td>
+          </tr>
+          <tr>
+            <td>مبرهنة التباعد لغاوس</td>
+            <td>Divergence Theorem</td>
+            <td><span class="formula">\(\int_V (\nabla \cdot \mathbf{a})\,dV = \oint_S \mathbf{a} \cdot d\mathbf{S}\)</span></td>
+            <td>القسم ١٧ (ص ١٤٠)</td>
+          </tr>
+          <tr>
+            <td>مبرهنة غرين في المستوى</td>
+            <td>Green's Theorem</td>
+            <td><span class="formula">\(\oint_C (P\,dx + Q\,dy) = \iint_D (Q_x - P_y)\,dA\)</span></td>
+            <td>القسم ١٧ (ص ١٤٦)</td>
+          </tr>
+          <tr>
+            <td>مبرهنة ستوكس</td>
+            <td>Stokes' Theorem</td>
+            <td><span class="formula">\(\int_S (\nabla \times \mathbf{a}) \cdot d\mathbf{S} = \oint_C \mathbf{a} \cdot d\mathbf{r}\)</span></td>
+            <td>القسم ١٧ (ص ١٤٨)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="closing">
+      <span class="mark">ACADEMIC EXCELLENCE &bull; MANSOURA UNIVERSITY &bull; PURE MATHEMATICS</span>
+      <p>
+        تم بحمد الله وتوفيقه بناء هذا المرجع الجامعي الشامل لمقرر التفاضل العالي (<span class="english">Math 216</span>) استناداً إلى المحتوى العلمي الكامل لمقرر كلية العلوم بجامعة المنصورة، مع تأسيس رياضي متكامل من نقطة الصفر وربط تحليلي دقيق لكافة القوانين والنظريات والبراهين.
+      </p>
+      <div class="source-note">
+        <strong>توثيق المصدر والإسناد العلمي:</strong>
+        مستند بالكامل إلى كتاب: <em>Calculus 2 (Math 216) — For second level students</em>، تأليف: أ.د. حمدي علي المتولي (أستاذ الرياضيات البحتة) و د. أسامة معاذ (أستاذ الرياضيات البحتة المساعد)، قسم الرياضيات، كلية العلوم، جامعة المنصورة (152 صفحة كاملة). تتوفر ملفات التدقيق التفصيلية المصاحبة: <code>SOURCE_COVERAGE.txt</code>، <code>CALCULUS_FORMULA_INDEX.txt</code>، و <code>ERROR_LOG.txt</code> في بيئة العمل.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(() => {
+  const exportButton = document.getElementById('exportPdf');
+  const details = Array.from(document.querySelectorAll('details'));
+  let previousDetailsState = [];
+
+  if (exportButton) exportButton.addEventListener('click', () => window.print());
+
+  window.addEventListener('beforeprint', () => {
+    previousDetailsState = details.map(item => item.open);
+    details.forEach(item => { item.open = true; });
+  });
+
+  window.addEventListener('afterprint', () => {
+    details.forEach((item, index) => {
+      item.open = previousDetailsState[index] ?? false;
+    });
+  });
+})();
+</script>
+
+
+  <!-- Math rendering engine (MathJax v3) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        tags: 'none'
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        enableMenu: false
+      },
+      chtml: { scale: 1.0, matchFontHeight: false, mtextInheritFont: true },
+      startup: {
+        pageReady: function () {
+          // Sanitize math segments before typesetting:
+          // 1) normalize stray tabs inside formulas
+          // 2) convert literal unicode symbols to LaTeX commands
+          var uni = {
+            '\u2208': '\\in ', '\u2264': '\\le ', '\u2265': '\\ge ',
+            '\u2271': '\\ge ', '\u2272': '\\le ', '\u00B1': '\\pm ',
+            '\u2212': '-', '\u00D7': '\\times ', '\u00B7': '\\cdot ',
+            '\u2260': '\\ne ', '\u2192': '\\to ', '\u21D2': '\\Rightarrow ',
+            '\u2194': '\\Leftrightarrow ', '\u221E': '\\infty ', '\u2202': '\\partial ',
+            '\u2207': '\\nabla ', '\u03C0': '\\pi ', '\u03B8': '\\theta ',
+            '\u03C6': '\\varphi ', '\u03C1': '\\rho ', '\u03C3': '\\sigma ',
+            '\u03BB': '\\lambda ', '\u03BC': '\\mu ', '\u03B1': '\\alpha ',
+            '\u03B2': '\\beta ', '\u03B3': '\\gamma ', '\u03A9': '\\Omega ',
+            '\u2229': '\\cap ', '\u222A': '\\cup ', '\u2205': '\\emptyset ',
+            '\u2248': '\\approx ', '\u2261': '\\equiv ', '\u221D': '\\propto ',
+            '\u22C5': '\\cdot ', '\u00BD': '\\tfrac{1}{2}', '\u2153': '\\tfrac{1}{3}'
+          };
+          function sanitize(seg) {
+            seg = seg.replace(/\t/g, ' ');
+            for (var k in uni) { seg = seg.split(k).join(uni[k]); }
+            return seg;
+          }
+          function walk(node) {
+            if (node.nodeType === 3) {
+              var t = node.nodeValue;
+              if (/\\\(|\$\$/.test(t)) node.nodeValue = sanitize(t);
+            } else if (node.nodeType === 1) {
+              var tag = node.nodeName.toLowerCase();
+              if (['script','noscript','style','textarea','pre','code','svg'].indexOf(tag) !== -1) return;
+              for (var c = node.firstChild; c; c = c.nextSibling) walk(c);
+            }
+          }
+          walk(document.body);
+          return MathJax.startup.defaultPageReady();
+        }
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</body>
+</html>
