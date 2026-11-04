@@ -613,13 +613,13 @@
         <tbody>
           <tr>
             <td>الضرب القياسي (<span class="english">Dot Product</span>)</td>
-            <td><span class="formula">\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z = |\mathbf{a}||\mathbf{b}|\cos	heta</span></td>
+            <td><span class="formula">\mathbf{a} \cdot \mathbf{b} = a_x b_x + a_y b_y + a_z b_z = |\mathbf{a}||\mathbf{b}|\cos	\theta</span></td>
             <td><strong>عدد قياسي (Scalar)</strong></td>
             <td>يقيس مقدار التوازي والشغل المبذول؛ ينعدم (<span class="formula">\mathbf{a}\cdot\mathbf{b}=0</span>) إذا وفقط إذا كان المتجهان متعامدين.</td>
           </tr>
           <tr>
             <td>الضرب الاتجاهي (<span class="english">Cross Product</span>)</td>
-            <td><span class="formula">\mathbf{a} 	imes \mathbf{b} = egin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \ a_x & a_y & a_z \ b_x & b_y & b_z \end{vmatrix}</span></td>
+            <td><span class="formula">\mathbf{a} 	imes \mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \ a_x & a_y & a_z \ b_x & b_y & b_z \end{vmatrix}</span></td>
             <td><strong>متجه عمودي (Vector)</strong></td>
             <td>ينتج متجهاً عمودياً على كلا المتجهين باتباع قاعدة اليد اليمنى، ومقداره يساوي مساحة متوازي الأضلاع الناتج عنهما.</td>
           </tr>
@@ -635,10 +635,10 @@
       <span class="box-title">المتطابقات المثلثية الضرورية لحساب التكاملات في المصدر</span>
       <p>احفظ هذه المتطابقات الأربع لأنها مفتاح حل التكاملات في الفصول القادمة:</p>
       <ul>
-        <li><span class="formula">\sin^2 	heta + \cos^2 	heta = 1</span></li>
-        <li><span class="formula">\cos^2 	heta = rac{1 + \cos(2	heta)}{2}</span> (تستخدم لخفض رتبة الأسس داخل التكاملات المزدوجة)</li>
-        <li><span class="formula">\sin^2 	heta = rac{1 - \cos(2	heta)}{2}</span></li>
-        <li><span class="formula">\sin(2	heta) = 2 \sin	heta \cos	heta</span></li>
+        <li><span class="formula">\sin^2 	\theta + \cos^2 	\theta = 1</span></li>
+        <li><span class="formula">\cos^2 	\theta = \frac{1 + \cos(2	\theta)}{2}</span> (تستخدم لخفض رتبة الأسس داخل التكاملات المزدوجة)</li>
+        <li><span class="formula">\sin^2 	\theta = \frac{1 - \cos(2	\theta)}{2}</span></li>
+        <li><span class="formula">\sin(2	\theta) = 2 \sin	\theta \cos	\theta</span></li>
       </ul>
     </div>
   </section>
@@ -662,7 +662,7 @@
       </p>
       <div class="code-wrap">
         <div class="code-label">Derivative Definition</div>
-        <pre><code class="formula">f'(x) = rac{df}{dx} = \lim_{h 	o 0} rac{f(x + h) - f(x)}{h}</code></pre>
+        <pre><code class="formula">f'(x) = \frac{df}{dx} = \lim_{h 	o 0} \frac{f(x + h) - f(x)}{h}</code></pre>
       </div>
       <p>
         <strong>التفسير الهندسي:</strong> المشتقة <span class="formula">f'(a)</span> تمثل <strong>ميل المماس (<span class="english">Slope of the Tangent Line</span>)</strong> لمنحنى الدالة عند النقطة <span class="formula">(a, f(a))</span>.
@@ -685,51 +685,51 @@
             <td>مشتقة الثابت</td>
             <td><span class="formula">c</span> (حيث <span class="formula">c</span> عدد ثابت)</td>
             <td><span class="formula">0</span></td>
-            <td><span class="formula">rac{d}{dx}(7) = 0</span></td>
+            <td><span class="formula">\frac{d}{dx}(7) = 0</span></td>
           </tr>
           <tr>
             <td>قاعدة القوة (<span class="english">Power Rule</span>)</td>
             <td><span class="formula">x^n</span></td>
             <td><span class="formula">n x^{n-1}</span></td>
-            <td><span class="formula">rac{d}{dx}(x^4) = 4x^3, \quad rac{d}{dx}(\sqrt{x}) = rac{1}{2\sqrt{x}}</span></td>
+            <td><span class="formula">\frac{d}{dx}(x^4) = 4x^3, \quad \frac{d}{dx}(\sqrt{x}) = \frac{1}{2\sqrt{x}}</span></td>
           </tr>
           <tr>
             <td>مشتقة الدالة الأسية الطبيعية</td>
             <td><span class="formula">e^x</span></td>
             <td><span class="formula">e^x</span></td>
-            <td><span class="formula">rac{d}{dx}(e^{3x}) = 3e^{3x}</span></td>
+            <td><span class="formula">\frac{d}{dx}(e^{3x}) = 3e^{3x}</span></td>
           </tr>
           <tr>
             <td>مشتقة اللوغاريتم الطبيعي</td>
             <td><span class="formula">\ln x</span></td>
-            <td><span class="formula">rac{1}{x}</span> (مع شرط <span class="formula">x > 0</span>)</td>
-            <td><span class="formula">rac{d}{dx}(\ln(x^2+1)) = rac{2x}{x^2+1}</span></td>
+            <td><span class="formula">\frac{1}{x}</span> (مع شرط <span class="formula">x > 0</span>)</td>
+            <td><span class="formula">\frac{d}{dx}(\ln(x^2+1)) = \frac{2x}{x^2+1}</span></td>
           </tr>
           <tr>
             <td>مشتقات الدوال المثلثية</td>
             <td><span class="formula">\sin x, \quad \cos x</span></td>
             <td><span class="formula">\cos x, \quad -\sin x</span></td>
-            <td><span class="formula">rac{d}{dx}(\sin(5x)) = 5\cos(5x)</span></td>
+            <td><span class="formula">\frac{d}{dx}(\sin(5x)) = 5\cos(5x)</span></td>
           </tr>
           <tr>
             <td>قاعدة الضرب (<span class="english">Product Rule</span>)</td>
             <td><span class="formula">u(x) \cdot v(x)</span></td>
             <td><span class="formula">u' v + u v'</span></td>
-            <td><span class="formula">rac{d}{dx}(x e^x) = (1)(e^x) + x(e^x) = (1+x)e^x</span></td>
+            <td><span class="formula">\frac{d}{dx}(x e^x) = (1)(e^x) + x(e^x) = (1+x)e^x</span></td>
           </tr>
           <tr>
             <td>قاعدة القسمة (<span class="english">Quotient Rule</span>)</td>
-            <td><span class="formula">rac{u(x)}{v(x)}</span></td>
-            <td><span class="formula">rac{u' v - u v'}{v^2}</span> (مع <span class="formula">v(x) 
+            <td><span class="formula">\frac{u(x)}{v(x)}</span></td>
+            <td><span class="formula">\frac{u' v - u v'}{v^2}</span> (مع <span class="formula">v(x) 
 e 0</span>)</td>
-            <td><span class="formula">rac{d}{dx}\left(rac{x}{x+1}
-ight) = rac{1(x+1) - x(1)}{(x+1)^2} = rac{1}{(x+1)^2}</span></td>
+            <td><span class="formula">\frac{d}{dx}\left(\frac{x}{x+1}
+ight) = \frac{1(x+1) - x(1)}{(x+1)^2} = \frac{1}{(x+1)^2}</span></td>
           </tr>
           <tr>
             <td>قاعدة السلسلة (<span class="english">Chain Rule</span>)</td>
             <td><span class="formula">f(g(x))</span></td>
             <td><span class="formula">f'(g(x)) \cdot g'(x)</span></td>
-            <td><span class="formula">rac{d}{dx}((x^2+1)^5) = 5(x^2+1)^4 \cdot (2x) = 10x(x^2+1)^4</span></td>
+            <td><span class="formula">\frac{d}{dx}((x^2+1)^5) = 5(x^2+1)^4 \cdot (2x) = 10x(x^2+1)^4</span></td>
           </tr>
         </tbody>
       </table>
@@ -743,7 +743,7 @@ ight) = rac{1(x+1) - x(1)}{(x+1)^2} = rac{1}{(x+1)^2}</span></td>
     <div class="definition">
       <span class="box-title">تعريف: مجموع ريمان والتكامل المحدد (<span class="english">Definite Integral</span>)</span>
       <p>
-        لحساب المساحة تحت منحنى الدالة الموجبة <span class="formula">y = f(x)</span> على الفترة <span class="formula">[a, b]</span>، نقسم الفترة إلى <span class="formula">n</span> من المستطيلات الرقيقة بعرض <span class="formula">\Delta x = rac{b-a}{n}</span> وارتفاع <span class="formula">f(x_i^*)</span>. التكامل المحدد هو نهاية هذا المجموع عندما يؤول عدد المستطيلات إلى اللانهاية:
+        لحساب المساحة تحت منحنى الدالة الموجبة <span class="formula">y = f(x)</span> على الفترة <span class="formula">[a, b]</span>، نقسم الفترة إلى <span class="formula">n</span> من المستطيلات الرقيقة بعرض <span class="formula">\Delta x = \frac{b-a}{n}</span> وارتفاع <span class="formula">f(x_i^*)</span>. التكامل المحدد هو نهاية هذا المجموع عندما يؤول عدد المستطيلات إلى اللانهاية:
       </p>
       <div class="code-wrap">
         <div class="code-label">Riemann Sum to Integral</div>
